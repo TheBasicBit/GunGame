@@ -2,17 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSystem : MonoBehaviour
+public static class GameSystem
 {
-    // Start is called before the first frame update
-    void Start()
+    public static void Main()
     {
-        
+        Debug.Log("GameSystem: Main");
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void OnTick()
     {
-        
     }
 }
