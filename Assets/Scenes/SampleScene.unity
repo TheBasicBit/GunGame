@@ -120,6 +120,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &135498560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135498561}
+  m_Layer: 0
+  m_Name: System Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135498561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135498560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +223,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0.000000008067874}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -1590,7 +1620,6 @@ Transform:
   - {fileID: 1925101628}
   - {fileID: 882853185}
   - {fileID: 1679769176}
-  - {fileID: 343376276}
   - {fileID: 2087473974}
   - {fileID: 1955691387}
   - {fileID: 1545132524}
@@ -1601,27 +1630,19 @@ Transform:
   - {fileID: 1105397072}
   - {fileID: 1026544539}
   - {fileID: 1969597632}
-  - {fileID: 151132595}
-  - {fileID: 184524057}
   - {fileID: 1358849051}
-  - {fileID: 513601706}
   - {fileID: 1512569308}
-  - {fileID: 398738318}
   - {fileID: 2098546728}
-  - {fileID: 260542799}
   - {fileID: 1485849351}
   - {fileID: 1820464028}
-  - {fileID: 462419235}
   - {fileID: 1389998050}
   - {fileID: 1576537111}
   - {fileID: 1473734931}
-  - {fileID: 401091503}
   - {fileID: 1647264433}
   - {fileID: 1434453450}
   - {fileID: 5006512735999932469}
   - {fileID: 5006512735169449593}
   - {fileID: 845461118}
-  - {fileID: 141351945}
   - {fileID: 921878583}
   - {fileID: 1386171882}
   m_Father: {fileID: 0}
