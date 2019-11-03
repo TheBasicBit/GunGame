@@ -6,11 +6,21 @@ public class SystemHolder : MonoBehaviour
 {
     public void Start()
     {
-        GameSystem.Main();
+        GameSystem.Main(this);
     }
 
     public void Update()
     {
         GameSystem.OnTick();
+    }
+
+    public GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        return Instantiate(prefab, position, rotation);
+    }
+
+    public void DestroyObject(GameObject gameObject)
+    {
+        Destroy(gameObject);
     }
 }
