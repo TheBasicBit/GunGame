@@ -29,14 +29,10 @@ public class Player : MonoBehaviour
 
     public Player()
     {
-        PlayerInstance = this;
         verticalForce = -gravity;
     }
 
-    public static Player PlayerInstance { get; private set; }
-
     public CharacterController CharacterController { get; set; }
-    public PlayerCamera Camera { get; set; }
     public bool IsGrounded { get; set; }
 
     public void Start()
@@ -126,8 +122,8 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Vector3 startPosition = transform.position + new Vector3(0, 0.9f, 0) + Camera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
-        GameObject obj = Instantiate(bulletPrefab, startPosition, Camera.transform.rotation);
+        Vector3 startPosition = transform.position + new Vector3(0, 0.75f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
+        GameObject obj = Instantiate(bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
         Bullet bullet = obj.GetComponent<Bullet>();
         bullet.startPosition = startPosition;
     }

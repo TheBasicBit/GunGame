@@ -14,8 +14,6 @@ public class PlayerCamera : MonoBehaviour
 
     public void Start()
     {
-        Player.PlayerInstance.Camera = this;
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -38,7 +36,7 @@ public class PlayerCamera : MonoBehaviour
         this.yaw = yaw;
         this.pitch = pitch;
 
-        Player.PlayerInstance.transform.eulerAngles = new Vector3(0, yaw, 0);
+        GameSystem.Player.transform.eulerAngles = new Vector3(0, yaw, 0);
         transform.eulerAngles = new Vector3(pitch, yaw, 0);
     }
 }

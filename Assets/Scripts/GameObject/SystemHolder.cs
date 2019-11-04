@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SystemHolder : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject playerCamera;
+
     public void Start()
     {
         GameSystem.Main(this);
