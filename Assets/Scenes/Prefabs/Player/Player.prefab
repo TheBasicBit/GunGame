@@ -134,7 +134,7 @@ MonoBehaviour:
   stepUpHeight: 50
   shootKey: 323
   jumpKey: 32
-  sprintKey: 306
+  sprintKey: 304
   _________________________________________________: 0
   verticalForce: -15
   isJumping: 0
