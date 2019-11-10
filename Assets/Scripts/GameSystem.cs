@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.BaseSystem.Network;
 using BaseSystem.Network.Client;
+using System.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ public static class GameSystem
     public static Player Player { get => SystemHolder.player.GetComponent<Player>(); }
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
     public static Client Client { get; } = new Client("134.255.232.43", 19489);
+    public static List<Action> SyncActions { get; } = new List<Action>();
 
     public static void Main(SystemHolder systemHolder)
     {
@@ -27,6 +29,16 @@ public static class GameSystem
 
     public static void OnTick()
     {
+        while (SyncActions.Count != 0)
+        {
+            SyncActions.Last().Invoke();
+            SyncActions.RemoveAt(SyncActions.Count - 1);
+        }
+    }
+
+    public static void RunSync(Action action)
+    {
+        SyncActions.Add(action);
     }
 
     public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)

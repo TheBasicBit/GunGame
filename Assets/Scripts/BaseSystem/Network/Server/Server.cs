@@ -13,7 +13,7 @@ namespace BaseSystem.Network.Server
     {
         private const string DisposedObjectName = "Server";
 
-        private readonly static List<ServerSideClient> clients = new List<ServerSideClient>();
+        private readonly List<ServerSideClient> clients = new List<ServerSideClient>();
 
         private readonly TcpListener listener;
         private bool listening = false;

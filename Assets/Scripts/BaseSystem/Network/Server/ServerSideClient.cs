@@ -21,9 +21,37 @@ namespace BaseSystem.Network.Server
 
         public ServerSideClient(Server server, TcpClient client) : base(client, (int)server.TimeOut.TotalMilliseconds)
         {
+            Server = server;
+
             Console.WriteLine("Client[" + ((IPEndPoint)client.Client.RemoteEndPoint).Address + "] connected.");
 
-            Server = server;
+            foreach (ServerSideClient otherClient in Server.Clients)
+            {
+                if (this != otherClient)
+                {
+                    otherClient.SendPacket(new ClientConnectPacket()
+                    {
+                        ClientId = 0,
+                        PosX = 0,
+                        PosY = 0,
+                        PosZ = 0,
+                        RotX = 0,
+                        RotY = 0,
+                        RotZ = 0
+                    });
+
+                    SendPacket(new ClientConnectPacket()
+                    {
+                        ClientId = 0,
+                        PosX = 0,
+                        PosY = 0,
+                        PosZ = 0,
+                        RotX = 0,
+                        RotY = 0,
+                        RotZ = 0
+                    });
+                }
+            }
             keepAliveTimer.Start();
         }
 

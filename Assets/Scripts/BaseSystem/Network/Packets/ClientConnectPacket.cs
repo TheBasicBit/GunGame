@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.BaseSystem.Network.Packets
+namespace BaseSystem.Network.Packets
 {
     public struct ClientConnectPacket
     {
-        public int ClientId { get; }
-
-        public float PosX { get; }
-        public float PosY { get; }
-        public float PosZ { get; }
-
-        public float RotX { get; }
-        public float RotY { get; }
-        public float RotZ { get; }
+        public int ClientId;
+        public float PosX;
+        public float PosY;
+        public float PosZ;
+        public float RotX;
+        public float RotY;
+        public float RotZ;
     }
 }

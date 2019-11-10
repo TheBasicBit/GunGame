@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.BaseSystem.Network.Packets;
+﻿using BaseSystem.Network.Packets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +17,10 @@ public static class NetworkManager
     {
         if (packet is ClientConnectPacket clientConnectPacket)
         {
-            GameSystem.SpawnPlayer(clientConnectPacket.ClientId, new Vector3(clientConnectPacket.PosX, clientConnectPacket.PosY, clientConnectPacket.PosZ), new Vector3(clientConnectPacket.RotX, clientConnectPacket.RotY, clientConnectPacket.RotZ));
+            GameSystem.RunSync(new Action(() =>
+            {
+                GameSystem.SpawnPlayer(clientConnectPacket.ClientId, new Vector3(clientConnectPacket.PosX, clientConnectPacket.PosY, clientConnectPacket.PosZ), new Vector3(clientConnectPacket.RotX, clientConnectPacket.RotY, clientConnectPacket.RotZ));
+            }));
         }
     }
 }
