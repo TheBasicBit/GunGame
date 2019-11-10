@@ -8,6 +8,6 @@ namespace BaseSystem.Network.Packets
 {
     public struct ClientDisconnectPacket
     {
-        public ulong clientId;
+        public int clientId;
     }
 }

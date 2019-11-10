@@ -72,7 +72,7 @@ public static class GameSystem
         DestroyObject(script.gameObject);
     }
 
-    public static void SpawnPlayer(ulong id, Vector3 position, Vector3 rotation)
+    public static void SpawnPlayer(int id, Vector3 position, Vector3 rotation)
     {
         CreateObject(SystemHolder.otherPlayer, position, Quaternion.Euler(rotation)).GetComponent<OtherPlayer>().id = id;
     }

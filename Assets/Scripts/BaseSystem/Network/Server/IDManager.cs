@@ -8,11 +8,11 @@ namespace BaseSystem.Network.Server
 {
     public class IDManager
     {
-        private readonly List<ulong> ids = new List<ulong>();
+        private readonly List<int> ids = new List<int>();
 
-        public ulong CreateNewID()
+        public int CreateNewID()
         {
-            ulong id = 0;
+            int id = 0;
             while (ids.Contains(id))
             {
                 id++;

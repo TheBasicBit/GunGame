@@ -17,7 +17,7 @@ namespace BaseSystem.Network.Server
         private bool disconnected = false;
 
         public Server Server { get; }
-        public ulong Id { get; }
+        public int Id { get; }
         public TimeSpan TimeAfterLastKeepAlive { get => keepAliveTimer.Elapsed; }
         public IPAddress Address { get; }
 

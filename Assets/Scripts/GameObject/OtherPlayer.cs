@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OtherPlayer : MonoBehaviour
 {
-    public static Dictionary<ulong, OtherPlayer> OtherPlayers { get; } = new Dictionary<ulong, OtherPlayer>();
+    public static Dictionary<int, OtherPlayer> OtherPlayers { get; } = new Dictionary<int, OtherPlayer>();
 
-    public ulong id;
+    public int id;
 
     public void Start()
     {
