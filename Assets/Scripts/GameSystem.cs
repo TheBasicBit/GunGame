@@ -1,11 +1,9 @@
-﻿using System;
+﻿using BaseSystem.Network.Client;
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
 using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public static class GameSystem
 {
@@ -13,6 +11,7 @@ public static class GameSystem
     private static Stopwatch ClientKeepAlive { get; } = new Stopwatch();
     public static Player Player { get => SystemHolder.player.GetComponent<Player>(); }
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
+    public static Client Client { get; } = new Client("134.255.232.43", 19489);
 
     public static void Main(SystemHolder systemHolder)
     {
