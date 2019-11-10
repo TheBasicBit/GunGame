@@ -19,6 +19,7 @@ namespace BaseSystem.Network.Server
         private bool listening = false;
         private bool disposed = false;
 
+        public IDManager PlayerIDManager { get; } = new IDManager();
         public Thread UpdateLoopTask { get; }
         public TimeSpan TimeOut { get; }
         public int Port { get; }
@@ -83,10 +84,18 @@ namespace BaseSystem.Network.Server
 
             foreach (ServerSideClient client in clients)
             {
-                client.ServerClosed();
+                client.Disconnect("ServerClosed");
             }
 
             disposed = true;
+        }
+
+        public void DestroyClient(ServerSideClient client)
+        {
+            if (clients.Contains(client))
+            {
+                clients.Remove(client);
+            }
         }
 
         private void UpdateLoop()
@@ -108,7 +117,7 @@ namespace BaseSystem.Network.Server
                         }
                         else if (client.TimeAfterLastKeepAlive >= new TimeSpan(0, 0, 3))
                         {
-                            client.TimedOut();
+                            client.Disconnect("TimedOut");
                             clients.Remove(client);
                             continue;
                         }
@@ -122,7 +131,7 @@ namespace BaseSystem.Network.Server
                             }
                             catch (IOException)
                             {
-                                client.Disconnected();
+                                client.Disconnect("CanNotReadPacket");
                                 continue;
                             }
 

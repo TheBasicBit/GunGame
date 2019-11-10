@@ -8,7 +8,7 @@ namespace BaseSystem.Network.Packets
 {
     public struct ClientConnectPacket
     {
-        public int clientId;
+        public ulong clientId;
         public float posX;
         public float posY;
         public float posZ;

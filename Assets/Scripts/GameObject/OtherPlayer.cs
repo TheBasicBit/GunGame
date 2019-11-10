@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class OtherPlayer : MonoBehaviour
 {
-    public int id;
+    public static Dictionary<ulong, OtherPlayer> OtherPlayers { get; } = new Dictionary<ulong, OtherPlayer>();
+
+    public ulong id;
 
     public void Start()
     {
+        OtherPlayers.Add(id, this);
+    }
+
+    public void Destroy()
+    {
+        GameSystem.DestroyObject(this);
+        OtherPlayers.Remove(id);
     }
 }

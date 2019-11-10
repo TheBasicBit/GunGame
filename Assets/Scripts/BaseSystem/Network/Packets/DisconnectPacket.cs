@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseSystem.Network.Packets
 {
-    public struct ClientDisconnectPacket
+    public struct DisconnectPacket
     {
-        public ulong clientId;
-
-        public ClientDisconnectPacket(ulong id)
-        {
-            clientId = id;
-        }
     }
 }

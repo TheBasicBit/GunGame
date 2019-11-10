@@ -49,7 +49,7 @@ namespace BaseSystem.Network
         {
             get
             {
-                return Stream.DataAvailable;
+                return tcpClient.Connected && Stream.DataAvailable;
             }
         }
 

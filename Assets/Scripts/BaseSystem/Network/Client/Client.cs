@@ -7,7 +7,6 @@ using System.IO;
 using System.Threading;
 using BaseSystem.Network.Packets;
 using System.Diagnostics;
-using Assets.Scripts.BaseSystem.Network;
 
 namespace BaseSystem.Network.Client
 {

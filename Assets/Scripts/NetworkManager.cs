@@ -24,6 +24,10 @@ public static class NetworkManager
         }
         else if (packet is ClientDisconnectPacket clientDisconnectPacket)
         {
+            GameSystem.RunSync(new Action(() =>
+            {
+                OtherPlayer.OtherPlayers[clientDisconnectPacket.clientId].Destroy();
+            }));
         }
     }
 }

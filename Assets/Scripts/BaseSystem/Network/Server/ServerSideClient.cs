@@ -14,16 +14,20 @@ namespace BaseSystem.Network.Server
     public class ServerSideClient : ClientBase
     {
         private readonly Stopwatch keepAliveTimer = new Stopwatch();
+        private bool disconnected = false;
 
         public Server Server { get; }
-
+        public ulong Id { get; }
         public TimeSpan TimeAfterLastKeepAlive { get => keepAliveTimer.Elapsed; }
+        public IPAddress Address { get; }
 
         public ServerSideClient(Server server, TcpClient client) : base(client, (int)server.TimeOut.TotalMilliseconds)
         {
             Server = server;
+            Id = server.PlayerIDManager.CreateNewID();
+            Address = ((IPEndPoint)client.Client.RemoteEndPoint).Address;
 
-            Console.WriteLine("Client[" + ((IPEndPoint)client.Client.RemoteEndPoint).Address + "] connected.");
+            Console.WriteLine(this + " connected.");
 
             foreach (ServerSideClient otherClient in Server.Clients)
             {
@@ -31,7 +35,7 @@ namespace BaseSystem.Network.Server
                 {
                     otherClient.SendPacket(new ClientConnectPacket()
                     {
-                        clientId = 0,
+                        clientId = Id,
                         posX = 0,
                         posY = 0,
                         posZ = 0,
@@ -42,7 +46,7 @@ namespace BaseSystem.Network.Server
 
                     SendPacket(new ClientConnectPacket()
                     {
-                        clientId = 0,
+                        clientId = Id,
                         posX = 0,
                         posY = 0,
                         posZ = 0,
@@ -53,6 +57,11 @@ namespace BaseSystem.Network.Server
                 }
             }
             keepAliveTimer.Start();
+        }
+
+        public override string ToString()
+        {
+            return "Client[Address: " + Address + ", ID: " + Id + "]";
         }
 
         public void OnIncomingPacket(object packet)
@@ -71,22 +80,21 @@ namespace BaseSystem.Network.Server
             {
                 keepAliveTimer.Restart();
             }
+            else if (packet is DisconnectPacket)
+            {
+                Disconnect("DisconnectPacket");
+            }
         }
 
-        public void ServerClosed()
+        public void Disconnect(string reason)
         {
-            Disconnected();
-        }
-
-        public void TimedOut()
-        {
-            Disconnected();
-        }
-
-        public void Disconnected()
-        {
-            SendPacket(new ClientDisconnectPacket(0));
-            Console.WriteLine("Client[" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address + "] disconnected.");
+            if (!disconnected)
+            {
+                Server.DestroyClient(this);
+                Console.WriteLine(this + " disconnected. (" + reason + ")");
+                tcpClient.Close();
+                disconnected = true;
+            }
         }
     }
 }
