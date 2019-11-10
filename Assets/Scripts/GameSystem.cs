@@ -1,4 +1,5 @@
-﻿using BaseSystem.Network.Client;
+﻿using Assets.Scripts.BaseSystem.Network;
+using BaseSystem.Network.Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,6 @@ using UnityEngine;
 public static class GameSystem
 {
     public static SystemHolder SystemHolder { get; private set; }
-    private static Stopwatch ClientKeepAlive { get; } = new Stopwatch();
     public static Player Player { get => SystemHolder.player.GetComponent<Player>(); }
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
     public static Client Client { get; } = new Client("134.255.232.43", 19489);
@@ -17,15 +17,16 @@ public static class GameSystem
     {
         SystemHolder = systemHolder;
 
-        ClientKeepAlive.Start();
+        Client.IncomingPacket += Client_IncomingPacket;
+    }
+
+    private static void Client_IncomingPacket(object sender, IncomingPacketEventArgs e)
+    {
+        NetworkManager.OnPacket(e.Packet);
     }
 
     public static void OnTick()
     {
-        if (ClientKeepAlive.Elapsed.TotalSeconds >= 1)
-        {
-            //TODO: Send "KeepAlive"-Packet
-        }
     }
 
     public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
@@ -41,5 +42,10 @@ public static class GameSystem
     public static void Destroy(this MonoBehaviour script)
     {
         script.gameObject.Destroy();
+    }
+
+    public static void SpawnPlayer(int id, Vector3 position, Vector3 rotation)
+    {
+        CreateObject(SystemHolder.otherPlayer, position, Quaternion.Euler(rotation)).GetComponent<OtherPlayer>().id = id;
     }
 }

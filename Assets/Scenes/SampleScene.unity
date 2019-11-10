@@ -151,6 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 594078907}
   playerCamera: {fileID: 424536328}
+  otherPlayer: {fileID: 3929618723057068664, guid: ddb107829851f3446a2ce7a25bfb9cad,
+    type: 3}
 --- !u!4 &163061126
 Transform:
   m_ObjectHideFlags: 0

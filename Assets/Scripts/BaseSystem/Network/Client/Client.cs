@@ -7,12 +7,15 @@ using System.IO;
 using System.Threading;
 using BaseSystem.Network.Packets;
 using System.Diagnostics;
+using Assets.Scripts.BaseSystem.Network;
 
 namespace BaseSystem.Network.Client
 {
     public class Client : ClientBase
     {
         private readonly Stopwatch keepAliveTimer = new Stopwatch();
+
+        public event EventHandler<IncomingPacketEventArgs> IncomingPacket = (object sender, IncomingPacketEventArgs e) => { };
 
         public Thread UpdateLoopTask { get; }
 
@@ -30,12 +33,7 @@ namespace BaseSystem.Network.Client
                 {
                     if (CanRead)
                     {
-                        object packet = ReceivePacket();
-
-                        if (packet is ChatMessagePacket chatMessagePacket)
-                        {
-                            Console.WriteLine(chatMessagePacket.message);
-                        }
+                        IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
                     }
 
                     if (keepAliveTimer.ElapsedMilliseconds > 1000)

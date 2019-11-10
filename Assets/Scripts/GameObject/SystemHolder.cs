@@ -6,6 +6,7 @@ public class SystemHolder : MonoBehaviour
 {
     public GameObject player;
     public GameObject playerCamera;
+    public GameObject otherPlayer;
 
     public void Start()
     {
