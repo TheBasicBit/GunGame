@@ -27,4 +27,9 @@ public class SystemHolder : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void OnApplicationQuit()
+    {
+        GameSystem.OnExit();
+    }
 }

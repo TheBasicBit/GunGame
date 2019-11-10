@@ -31,24 +31,24 @@ namespace BaseSystem.Network.Server
                 {
                     otherClient.SendPacket(new ClientConnectPacket()
                     {
-                        ClientId = 0,
-                        PosX = 0,
-                        PosY = 0,
-                        PosZ = 0,
-                        RotX = 0,
-                        RotY = 0,
-                        RotZ = 0
+                        clientId = 0,
+                        posX = 0,
+                        posY = 0,
+                        posZ = 0,
+                        rotX = 0,
+                        rotY = 0,
+                        rotZ = 0
                     });
 
                     SendPacket(new ClientConnectPacket()
                     {
-                        ClientId = 0,
-                        PosX = 0,
-                        PosY = 0,
-                        PosZ = 0,
-                        RotX = 0,
-                        RotY = 0,
-                        RotZ = 0
+                        clientId = 0,
+                        posX = 0,
+                        posY = 0,
+                        posZ = 0,
+                        rotX = 0,
+                        rotY = 0,
+                        rotZ = 0
                     });
                 }
             }
@@ -85,6 +85,7 @@ namespace BaseSystem.Network.Server
 
         public void Disconnected()
         {
+            SendPacket(new ClientDisconnectPacket(0));
             Console.WriteLine("Client[" + ((IPEndPoint)tcpClient.Client.RemoteEndPoint).Address + "] disconnected.");
         }
     }

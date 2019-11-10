@@ -11,9 +11,11 @@ using Assets.Scripts.BaseSystem.Network;
 
 namespace BaseSystem.Network.Client
 {
-    public class Client : ClientBase
+    public class Client : ClientBase, IDisposable
     {
         private readonly Stopwatch keepAliveTimer = new Stopwatch();
+
+        private bool disposed = false;
 
         public event EventHandler<IncomingPacketEventArgs> IncomingPacket = (object sender, IncomingPacketEventArgs e) => { };
 
@@ -27,27 +29,24 @@ namespace BaseSystem.Network.Client
 
         private void UpdateLoop()
         {
-            try
+            while (!disposed)
             {
-                while (true)
+                if (CanRead)
                 {
-                    if (CanRead)
-                    {
-                        IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
-                    }
+                    IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
+                }
 
-                    if (keepAliveTimer.ElapsedMilliseconds > 1000)
-                    {
-                        keepAliveTimer.Restart();
-                        SendPacket(new KeepAlivePacket());
-                    }
+                if (keepAliveTimer.ElapsedMilliseconds > 1000)
+                {
+                    keepAliveTimer.Restart();
+                    SendPacket(new KeepAlivePacket());
                 }
             }
-            catch (IOException e)
-            {
-                Console.WriteLine(e);
-                Console.ReadKey();
-            }
+        }
+
+        public void Dispose()
+        {
+            disposed = true;
         }
     }
 }

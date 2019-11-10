@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace BaseSystem.Network.Packets
 {
-    public struct ClientConnectPacket
+    public struct ClientDisconnectPacket
     {
         public int clientId;
-        public float posX;
-        public float posY;
-        public float posZ;
-        public float rotX;
-        public float rotY;
-        public float rotZ;
+
+        public ClientDisconnectPacket(int id)
+        {
+            clientId = id;
+        }
     }
 }

@@ -19,8 +19,11 @@ public static class NetworkManager
         {
             GameSystem.RunSync(new Action(() =>
             {
-                GameSystem.SpawnPlayer(clientConnectPacket.ClientId, new Vector3(clientConnectPacket.PosX, clientConnectPacket.PosY, clientConnectPacket.PosZ), new Vector3(clientConnectPacket.RotX, clientConnectPacket.RotY, clientConnectPacket.RotZ));
+                GameSystem.SpawnPlayer(clientConnectPacket.clientId, new Vector3(clientConnectPacket.posX, clientConnectPacket.posY, clientConnectPacket.posZ), new Vector3(clientConnectPacket.rotX, clientConnectPacket.rotY, clientConnectPacket.rotZ));
             }));
+        }
+        else if (packet is ClientDisconnectPacket clientDisconnectPacket)
+        {
         }
     }
 }

@@ -22,6 +22,11 @@ public static class GameSystem
         Client.IncomingPacket += Client_IncomingPacket;
     }
 
+    public static void OnExit()
+    {
+        Client.Dispose();
+    }
+
     private static void Client_IncomingPacket(object sender, IncomingPacketEventArgs e)
     {
         NetworkManager.OnPacket(e.Packet);
