@@ -16,12 +16,14 @@ public static class GameSystem
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
     public static Client Client { get; } = new Client(Config.ServerAddress, Config.ServerPort);
     public static List<Action> SyncActions { get; } = new List<Action>();
+    public static Stopwatch KeepAliveTimer { get; } = new Stopwatch();
 
     public static void Main(SystemHolder systemHolder)
     {
         SystemHolder = systemHolder;
 
         Client.IncomingPacket += Client_IncomingPacket;
+        KeepAliveTimer.Start();
     }
 
     public static void OnExit()
@@ -41,6 +43,12 @@ public static class GameSystem
         {
             SyncActions.Last().Invoke();
             SyncActions.RemoveAt(SyncActions.Count - 1);
+        }
+
+        if (KeepAliveTimer.ElapsedMilliseconds > 1000)
+        {
+            KeepAliveTimer.Restart();
+            Client.SendPacket(new KeepAlivePacket());
         }
     }
 

@@ -9,10 +9,5 @@ namespace BaseSystem.Network.Packets
     public struct ClientDisconnectPacket
     {
         public ulong clientId;
-
-        public ClientDisconnectPacket(ulong id)
-        {
-            clientId = id;
-        }
     }
 }

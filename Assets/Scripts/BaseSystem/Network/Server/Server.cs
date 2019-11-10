@@ -6,6 +6,7 @@ using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Text;
 using System.Threading;
+using BaseSystem.Network.Packets;
 
 namespace BaseSystem.Network.Server
 {
@@ -95,6 +96,11 @@ namespace BaseSystem.Network.Server
             if (clients.Contains(client))
             {
                 clients.Remove(client);
+            }
+
+            foreach (ServerSideClient otherClient in Clients)
+            {
+                client.SendPacket(new ClientDisconnectPacket() { clientId = client.Id });
             }
         }
 

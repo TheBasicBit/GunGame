@@ -17,6 +17,8 @@ public static class NetworkManager
     {
         if (packet is ClientConnectPacket clientConnectPacket)
         {
+            Debug.Log("Client[" + clientConnectPacket.clientId + "] connected: " + clientConnectPacket.clientId);
+
             GameSystem.RunSync(new Action(() =>
             {
                 GameSystem.SpawnPlayer(clientConnectPacket.clientId, new Vector3(clientConnectPacket.posX, clientConnectPacket.posY, clientConnectPacket.posZ), new Vector3(clientConnectPacket.rotX, clientConnectPacket.rotY, clientConnectPacket.rotZ));
@@ -24,10 +26,16 @@ public static class NetworkManager
         }
         else if (packet is ClientDisconnectPacket clientDisconnectPacket)
         {
+            Debug.Log("Client[" + clientDisconnectPacket.clientId + "] disconnected: " + clientDisconnectPacket.clientId);
+
             GameSystem.RunSync(new Action(() =>
             {
                 OtherPlayer.OtherPlayers[clientDisconnectPacket.clientId].Destroy();
             }));
+        }
+        else if (packet is ChatMessagePacket chatMessagePacket)
+        {
+            Debug.Log("Chat: " + chatMessagePacket.message);
         }
     }
 }

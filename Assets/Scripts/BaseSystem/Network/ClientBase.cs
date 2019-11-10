@@ -24,12 +24,16 @@ namespace BaseSystem.Network
             tcpClient.ReceiveTimeout = timeOut;
         }
 
-        protected ClientBase(string ip, int port, int timeOut)
+        protected ClientBase(string ip, int port, int timeOut) : this(ip, port)
+        {
+            tcpClient.SendTimeout = timeOut;
+            tcpClient.ReceiveTimeout = timeOut;
+        }
+
+        protected ClientBase(string ip, int port)
         {
             tcpClient = new TcpClient();
             tcpClient.Connect(ip, port);
-            tcpClient.SendTimeout = timeOut;
-            tcpClient.ReceiveTimeout = timeOut;
         }
 
         protected bool SendBytes(byte[] buffer)
@@ -72,11 +76,11 @@ namespace BaseSystem.Network
             return buffer.Skip(8 + nameLength).Take(structLength).ToArray().ToStruct(type);
         }
 
-        public void SendPacket<T>(T structObj) where T : struct
+        public bool SendPacket<T>(T structObj) where T : struct
         {
             byte[] nameBuffer = Encoding.ASCII.GetBytes(structObj.GetType().FullName);
             byte[] structBuffer = structObj.GetBytesFromStruct();
-            SendBytes(BitConverter.GetBytes(nameBuffer.Length).Concat(nameBuffer).Concat(BitConverter.GetBytes(structBuffer.Length)).Concat(structBuffer).ToArray());
+            return SendBytes(BitConverter.GetBytes(nameBuffer.Length).Concat(nameBuffer).Concat(BitConverter.GetBytes(structBuffer.Length)).Concat(structBuffer).ToArray());
         }
     }
 }

@@ -12,17 +12,14 @@ namespace BaseSystem.Network.Client
 {
     public class Client : ClientBase, IDisposable
     {
-        private readonly Stopwatch keepAliveTimer = new Stopwatch();
-
         private bool disposed = false;
 
         public event EventHandler<IncomingPacketEventArgs> IncomingPacket = (object sender, IncomingPacketEventArgs e) => { };
 
         public Thread UpdateLoopTask { get; }
 
-        public Client(string ip, int port) : base(ip, port, 5000)
+        public Client(string ip, int port) : base(ip, port)
         {
-            keepAliveTimer.Start();
             (UpdateLoopTask = new Thread(new ThreadStart(UpdateLoop))).Start();
         }
 
@@ -30,16 +27,7 @@ namespace BaseSystem.Network.Client
         {
             while (!disposed)
             {
-                if (CanRead)
-                {
-                    IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
-                }
-
-                if (keepAliveTimer.ElapsedMilliseconds > 1000)
-                {
-                    keepAliveTimer.Restart();
-                    SendPacket(new KeepAlivePacket());
-                }
+                IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
             }
         }
 
