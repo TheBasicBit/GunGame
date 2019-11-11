@@ -27,6 +27,7 @@ public static class GameSystem
 
         Client.IncomingPacket += Client_IncomingPacket;
         KeepAliveTimer.Start();
+        PositionTimer.Start();
     }
 
     public static void OnExit()

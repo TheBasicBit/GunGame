@@ -26,12 +26,18 @@ public static class NetworkManager
         }
         else if (packet is ClientQuitPacket clientDisconnectPacket)
         {
-            Debug.Log("Client[" + clientDisconnectPacket.clientId + "] disconnected: " + clientDisconnectPacket.clientId);
-
-            GameSystem.RunSync(new Action(() =>
+            try
             {
-                OtherPlayer.OtherPlayers[clientDisconnectPacket.clientId].Destroy();
-            }));
+                Debug.Log("Client[" + clientDisconnectPacket.clientId + "] disconnected: " + clientDisconnectPacket.clientId);
+
+                GameSystem.RunSync(new Action(() =>
+                {
+                    OtherPlayer.OtherPlayers[clientDisconnectPacket.clientId].Destroy();
+                }));
+            }
+            catch (KeyNotFoundException)
+            {
+            }
         }
         else if (packet is ChatMessagePacket chatMessagePacket)
         {
@@ -39,7 +45,13 @@ public static class NetworkManager
         }
         else if (packet is ClientPositionPacket clientPositionPacket)
         {
-            OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+            try
+            {
+                OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+            }
+            catch (KeyNotFoundException)
+            {
+            }
         }
     }
 }
