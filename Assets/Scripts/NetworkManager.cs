@@ -37,5 +37,9 @@ public static class NetworkManager
         {
             Debug.Log("Chat: " + chatMessagePacket.message);
         }
+        else if (packet is ClientPositionPacket clientPositionPacket)
+        {
+            OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+        }
     }
 }

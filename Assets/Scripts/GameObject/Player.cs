@@ -122,7 +122,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
-        Vector3 startPosition = transform.position + new Vector3(0, 0.75f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
+        Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
         GameObject obj = Instantiate(bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
         Bullet bullet = obj.GetComponent<Bullet>();
         bullet.startPosition = startPosition;

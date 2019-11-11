@@ -100,7 +100,7 @@ namespace BaseSystem.Network.Server
 
             foreach (ServerSideClient otherClient in Clients)
             {
-                client.SendPacket(new ClientQuitPacket() { clientId = client.Id });
+                otherClient.SendPacket(new ClientQuitPacket() { clientId = client.Id });
             }
         }
 

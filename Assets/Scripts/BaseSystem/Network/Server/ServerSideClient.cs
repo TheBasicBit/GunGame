@@ -84,6 +84,13 @@ namespace BaseSystem.Network.Server
             {
                 Disconnect("DisconnectPacket");
             }
+            else if (packet is PositionPacket positionPacket)
+            {
+                foreach (ServerSideClient client in Server.Clients)
+                {
+                    client.SendPacket(new ClientPositionPacket() { clientId = Id, x = positionPacket.x, y = positionPacket.y, z = positionPacket.z });
+                }
+            }
         }
 
         public void Disconnect(string reason)
