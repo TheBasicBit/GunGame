@@ -100,8 +100,21 @@ namespace BaseSystem.Network.Server
 
             foreach (ServerSideClient otherClient in Clients)
             {
-                client.SendPacket(new ClientDisconnectPacket() { clientId = client.Id });
+                client.SendPacket(new ClientQuitPacket() { clientId = client.Id });
             }
+        }
+
+        public ServerSideClient GetClientById(int id)
+        {
+            foreach (ServerSideClient serverSideClient in Clients)
+            {
+                if (serverSideClient.Id == id)
+                {
+                    return serverSideClient;
+                }
+            }
+
+            return null;
         }
 
         private void UpdateLoop()

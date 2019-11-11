@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BaseSystem.Network.Packets
 {
-    public struct ClientDisconnectPacket
+    public struct ClientQuitPacket
     {
         public int clientId;
     }
