@@ -47,7 +47,10 @@ public static class NetworkManager
         {
             try
             {
-                OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+                GameSystem.RunSync(new Action(() =>
+                {
+                    OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+                }));
             }
             catch (KeyNotFoundException)
             {
