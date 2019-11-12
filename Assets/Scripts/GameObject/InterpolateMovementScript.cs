@@ -13,7 +13,6 @@ public class InterpolateMovementScript : MonoBehaviour
 
     public void Start()
     {
-        time = 0;
         start = transform.position;
         point = transform.position;
         difference = point - start;
@@ -26,7 +25,7 @@ public class InterpolateMovementScript : MonoBehaviour
             timer += Time.deltaTime;
 
             progress = timer / time;
-            transform.position = start + difference * progress;
+            transform.position = (start + difference) * progress;
         }
     }
 
