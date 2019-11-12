@@ -49,9 +49,9 @@ public static class NetworkManager
             {
                 try
                 {
-                    Transform transform = OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform;
-                    transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
-                    transform.eulerAngles = new Vector3(0, clientPositionPacket.yaw, 0);
+                    OtherPlayer player = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
+                    player.MoveTo(new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z), 0.333f);
+                    player.transform.eulerAngles = new Vector3(0, clientPositionPacket.yaw, 0);
                 }
                 catch
                 {
