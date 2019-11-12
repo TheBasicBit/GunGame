@@ -10,16 +10,18 @@ public class InterpolateMovementScript : MonoBehaviour
     private Vector3 start;
     private float time;
     private Vector3 point;
-    private bool moving;
 
     public void Start()
     {
+        time = 0;
+        start = transform.position;
         point = transform.position;
+        difference = point - start;
     }
 
     public void Update()
     {
-        if (timer <= time && moving)
+        if (timer <= time)
         {
             timer += Time.deltaTime;
 
@@ -34,6 +36,5 @@ public class InterpolateMovementScript : MonoBehaviour
         point = pos;
         start = transform.position;
         difference = point - start;
-        moving = true;
     }
 }
