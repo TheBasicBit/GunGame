@@ -12,17 +12,22 @@ public class InterpolateMovementScript : MonoBehaviour
     private Vector3 endPos;
     private Vector3 diff;
 
+    private bool moving = false;
+
     public void Update()
     {
-        float state = (Time.time - startTime) / timeDiff;
+        if (moving)
+        {
+            float state = (Time.time - startTime) / timeDiff;
 
-        if (state >= 1)
-        {
-            transform.position = endPos;
-        }
-        else
-        {
-            transform.position = startPos + (diff * timeDiff);
+            if (state >= 1)
+            {
+                transform.position = endPos;
+            }
+            else
+            {
+                transform.position = startPos + (diff * timeDiff);
+            }
         }
     }
 
@@ -35,5 +40,7 @@ public class InterpolateMovementScript : MonoBehaviour
         startTime = Time.time;
         endTime = startTime + seconds;
         timeDiff = endTime - startTime;
+
+        moving = true;
     }
 }
