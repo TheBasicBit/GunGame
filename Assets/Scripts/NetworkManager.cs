@@ -45,16 +45,17 @@ public static class NetworkManager
         }
         else if (packet is ClientPositionPacket clientPositionPacket)
         {
-            try
+            GameSystem.RunSync(new Action(() =>
             {
-                GameSystem.RunSync(new Action(() =>
+                try
                 {
                     OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
-                }));
-            }
-            catch (KeyNotFoundException)
-            {
-            }
+                }
+                catch
+                {
+                    Debug.Log(clientPositionPacket.clientId);
+                }
+            }));
         }
     }
 }

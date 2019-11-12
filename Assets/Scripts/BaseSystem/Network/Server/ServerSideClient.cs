@@ -43,17 +43,6 @@ namespace BaseSystem.Network.Server
                         rotY = 0,
                         rotZ = 0
                     });
-
-                    SendPacket(new ClientConnectPacket()
-                    {
-                        clientId = Id,
-                        posX = 0,
-                        posY = 0,
-                        posZ = 0,
-                        rotX = 0,
-                        rotY = 0,
-                        rotZ = 0
-                    });
                 }
             }
             keepAliveTimer.Start();
@@ -90,7 +79,13 @@ namespace BaseSystem.Network.Server
                 {
                     if (client != this)
                     {
-                        client.SendPacket(new ClientPositionPacket() { clientId = Id, x = positionPacket.x, y = positionPacket.y, z = positionPacket.z });
+                        client.SendPacket(new ClientPositionPacket()
+                        {
+                            clientId = Id,
+                            x = positionPacket.x,
+                            y = positionPacket.y,
+                            z = positionPacket.z
+                        });
                     }
                 }
             }
@@ -104,6 +99,14 @@ namespace BaseSystem.Network.Server
                 Console.WriteLine(this + " disconnected. (" + reason + ")");
                 tcpClient.Close();
                 disconnected = true;
+
+                foreach (ServerSideClient otherClient in Server.Clients)
+                {
+                    otherClient.SendPacket(new ClientQuitPacket()
+                    {
+                        clientId = Id
+                    });
+                }
             }
         }
     }

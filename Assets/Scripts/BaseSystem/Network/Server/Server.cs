@@ -97,11 +97,6 @@ namespace BaseSystem.Network.Server
             {
                 clients.Remove(client);
             }
-
-            foreach (ServerSideClient otherClient in Clients)
-            {
-                otherClient.SendPacket(new ClientQuitPacket() { clientId = client.Id });
-            }
         }
 
         public ServerSideClient GetClientById(int id)
