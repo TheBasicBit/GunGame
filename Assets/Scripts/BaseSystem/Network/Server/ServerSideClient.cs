@@ -95,7 +95,8 @@ namespace BaseSystem.Network.Server
                             clientId = Id,
                             x = positionPacket.x,
                             y = positionPacket.y,
-                            z = positionPacket.z
+                            z = positionPacket.z,
+                            yaw = positionPacket.yaw
                         });
                     }
                 }
