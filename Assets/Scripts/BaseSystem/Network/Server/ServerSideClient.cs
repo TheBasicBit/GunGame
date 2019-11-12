@@ -88,7 +88,10 @@ namespace BaseSystem.Network.Server
             {
                 foreach (ServerSideClient client in Server.Clients)
                 {
-                    client.SendPacket(new ClientPositionPacket() { clientId = Id, x = positionPacket.x, y = positionPacket.y, z = positionPacket.z });
+                    if (client != this)
+                    {
+                        client.SendPacket(new ClientPositionPacket() { clientId = Id, x = positionPacket.x, y = positionPacket.y, z = positionPacket.z });
+                    }
                 }
             }
         }

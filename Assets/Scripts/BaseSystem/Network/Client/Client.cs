@@ -27,7 +27,10 @@ namespace BaseSystem.Network.Client
         {
             while (!disposed)
             {
-                IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
+                if (CanRead)
+                {
+                    IncomingPacket.Invoke(this, new IncomingPacketEventArgs(ReceivePacket()));
+                }
             }
         }
 
