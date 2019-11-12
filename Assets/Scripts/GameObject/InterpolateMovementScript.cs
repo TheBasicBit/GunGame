@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class InterpolateMovementScript : MonoBehaviour
 {
-    private float timer;
-    private float progress;
-    private Vector3 difference;
-    private Vector3 start;
-    private float time;
-    private Vector3 point;
+    private float startTime;
+    private float endTime;
+    private float timeDiff;
 
-    public void Start()
-    {
-        start = transform.position;
-        point = transform.position;
-        difference = point - start;
-    }
+    private Vector3 startPos;
+    private Vector3 endPos;
+    private Vector3 diff;
 
     public void Update()
     {
-        if (timer <= time)
-        {
-            timer += Time.deltaTime;
+        float state = (Time.time - startTime) / timeDiff;
 
-            progress = timer / time;
-            transform.position = (start + difference) * progress;
+        if (state >= 1)
+        {
+            transform.position = endPos;
+        }
+        else
+        {
+            transform.position = startPos + (diff * timeDiff);
         }
     }
 
     public void MoveTo(Vector3 pos, float seconds)
     {
-        time = seconds;
-        point = pos;
-        start = transform.position;
-        difference = point - start;
+        startPos = transform.position;
+        endPos = pos;
+        diff = endPos - startPos;
+
+        startTime = Time.time;
+        endTime = startTime + seconds;
+        timeDiff = endTime - startTime;
     }
 }
