@@ -19,8 +19,8 @@ public class OtherPlayer : MonoBehaviour
         OtherPlayers.Remove(id);
     }
 
-    public void MoveTo(Vector3 pos, float seconds)
+    public void MoveTo(Vector3 pos, Vector3 rot, float seconds)
     {
-        GetComponent<InterpolateMovementScript>().MoveTo(pos, seconds);
+        GetComponent<InterpolateMovementScript>().MoveTo(pos, rot, seconds);
     }
 }

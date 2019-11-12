@@ -10,7 +10,11 @@ public class InterpolateMovementScript : MonoBehaviour
 
     private Vector3 startPos;
     private Vector3 endPos;
-    private Vector3 diff;
+    private Vector3 diffPos;
+
+    private Vector3 startRot;
+    private Vector3 endRot;
+    private Vector3 diffRot;
 
     private bool moving = false;
 
@@ -23,19 +27,25 @@ public class InterpolateMovementScript : MonoBehaviour
             if (state >= 1)
             {
                 transform.position = endPos;
+                transform.eulerAngles = endRot;
             }
             else
             {
-                transform.position = startPos + (diff * state);
+                transform.position = startPos + (diffPos * state);
+                transform.eulerAngles = startRot + (diffRot * state);
             }
         }
     }
 
-    public void MoveTo(Vector3 pos, float seconds)
+    public void MoveTo(Vector3 pos, Vector3 rot, float seconds)
     {
         startPos = transform.position;
         endPos = pos;
-        diff = endPos - startPos;
+        diffPos = endPos - startPos;
+
+        startRot = transform.eulerAngles;
+        endRot = rot;
+        diffRot = endRot - startRot;
 
         startTime = Time.time;
         endTime = startTime + seconds;
