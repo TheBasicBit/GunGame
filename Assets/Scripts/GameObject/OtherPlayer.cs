@@ -8,29 +8,9 @@ public class OtherPlayer : MonoBehaviour
 
     public int id;
 
-    public bool move = false;
-    public float moveSeconds = 0;
-    public Vector3 moveStart = new Vector3(0, 0, 0);
-    public Vector3 moveEnd = new Vector3(0, 0, 0);
-
     public void Start()
     {
         OtherPlayers.Add(id, this);
-    }
-
-    public void Update()
-    {
-        if (move)
-        {
-            Vector3 pos = Vector3.Lerp(moveStart, moveEnd, Time.time / moveSeconds);
-
-            transform.position = pos;
-
-            if (moveEnd == pos)
-            {
-                move = false;
-            }
-        }
     }
 
     public void Destroy()
@@ -41,9 +21,6 @@ public class OtherPlayer : MonoBehaviour
 
     public void MoveTo(Vector3 pos, float seconds)
     {
-        moveStart = transform.position;
-        moveEnd = pos;
-        moveSeconds = seconds;
-        move = true;
+        GetComponent<InterpolateMovementScript>().MoveTo(pos, seconds);
     }
 }
