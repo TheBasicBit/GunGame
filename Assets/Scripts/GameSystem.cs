@@ -16,7 +16,6 @@ public static class GameSystem
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
     public static Client Client { get; } = new Client(Config.ServerAddress, Config.ServerPort);
     public static List<Action> SyncActions { get; } = new List<Action>();
-    public static Vector3 LastPlayerPos { get; private set; } = new Vector3(0, 0, 0);
 
     public static Stopwatch KeepAliveTimer { get; } = new Stopwatch();
     public static Stopwatch PositionTimer { get; } = new Stopwatch();
@@ -57,13 +56,11 @@ public static class GameSystem
 
         Vector3 pos = Player.transform.position;
 
-        if (PositionTimer.ElapsedMilliseconds > 333 && LastPlayerPos != pos)
+        if (PositionTimer.ElapsedMilliseconds > 333)
         {
             PositionTimer.Restart();
-            Client.SendPacket(new PositionPacket() { x = pos.x, y = pos.y, z = pos.z });
+            Client.SendPacket(new PositionPacket() { x = pos.x, y = pos.y, z = pos.z, yaw = PlayerCamera.yaw });
         }
-
-        LastPlayerPos = Player.transform.position;
     }
 
     public static void RunSync(Action action)

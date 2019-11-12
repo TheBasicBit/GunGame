@@ -9,6 +9,7 @@ namespace BaseSystem.Network.Packets
     public struct ClientPositionPacket
     {
         public int clientId;
+        public float yaw;
         public float x;
         public float y;
         public float z;

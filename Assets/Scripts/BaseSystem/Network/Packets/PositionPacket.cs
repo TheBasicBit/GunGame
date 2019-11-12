@@ -8,6 +8,7 @@ namespace BaseSystem.Network.Packets
 {
     public struct PositionPacket
     {
+        public float yaw;
         public float x;
         public float y;
         public float z;
