@@ -43,6 +43,17 @@ namespace BaseSystem.Network.Server
                         rotY = 0,
                         rotZ = 0
                     });
+
+                    SendPacket(new ClientConnectPacket()
+                    {
+                        clientId = otherClient.Id,
+                        posX = 0,
+                        posY = 0,
+                        posZ = 0,
+                        rotX = 0,
+                        rotY = 0,
+                        rotZ = 0
+                    });
                 }
             }
             keepAliveTimer.Start();
