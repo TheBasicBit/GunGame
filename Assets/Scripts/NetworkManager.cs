@@ -47,9 +47,15 @@ public static class NetworkManager
         {
             GameSystem.RunSync(new Action(() =>
             {
-                Transform transform = OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform;
-                transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
-                transform.eulerAngles = new Vector3(0, clientPositionPacket.yaw, 0);
+                try
+                {
+                    Transform transform = OtherPlayer.OtherPlayers[clientPositionPacket.clientId].transform;
+                    transform.position = new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z);
+                    transform.eulerAngles = new Vector3(0, clientPositionPacket.yaw, 0);
+                }
+                catch
+                {
+                }
             }));
         }
     }
