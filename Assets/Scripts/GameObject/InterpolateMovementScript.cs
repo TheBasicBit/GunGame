@@ -26,7 +26,7 @@ public class InterpolateMovementScript : MonoBehaviour
             }
             else
             {
-                transform.position = startPos + (diff * timeDiff);
+                transform.position = startPos + (diff * state);
             }
         }
     }
