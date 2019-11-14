@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(shootKey))
         {
-            if (Time.time - lastShoot > 0.333)
+            if (Time.time - lastShoot > 0.1)
             {
                 Shoot();
             }
