@@ -49,10 +49,9 @@ public static class NetworkManager
             {
                 try
                 {
-                    OtherPlayer player = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
-                    player.MoveTo(new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z), new Vector3(0, clientPositionPacket.yaw, 0), 0.333f);
+                    OtherPlayer.OtherPlayers[clientPositionPacket.clientId].MoveTo(new Vector3(clientPositionPacket.x, clientPositionPacket.y, clientPositionPacket.z), new Vector3(0, clientPositionPacket.yaw, 0), 0.333f);
                 }
-                catch
+                catch (KeyNotFoundException)
                 {
                 }
             }));
