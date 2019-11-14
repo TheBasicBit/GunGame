@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool _________________________________________________;
 
     public float verticalForce;
+    public float lastShoot = 0;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
     public bool onGround = false;
@@ -76,9 +77,12 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(shootKey))
+        if (Input.GetKey(shootKey))
         {
-            Shoot();
+            if (Time.time - lastShoot > 0.333)
+            {
+                Shoot();
+            }
         }
 
         if (verticalForce > -gravity)
@@ -122,6 +126,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
+        lastShoot = Time.time;
         Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
         GameObject obj = Instantiate(bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
         Bullet bullet = obj.GetComponent<Bullet>();

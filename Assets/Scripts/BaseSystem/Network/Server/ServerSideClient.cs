@@ -96,7 +96,8 @@ namespace BaseSystem.Network.Server
                             x = positionPacket.x,
                             y = positionPacket.y,
                             z = positionPacket.z,
-                            yaw = positionPacket.yaw
+                            yaw = positionPacket.yaw,
+                            pitch = positionPacket.pitch
                         });
                     }
                 }

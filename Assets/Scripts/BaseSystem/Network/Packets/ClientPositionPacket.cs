@@ -10,6 +10,7 @@ namespace BaseSystem.Network.Packets
     {
         public int clientId;
         public float yaw;
+        public float pitch;
         public float x;
         public float y;
         public float z;
