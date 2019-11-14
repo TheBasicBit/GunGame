@@ -20278,8 +20278,14 @@ PrefabInstance:
     - target: {fileID: 6889821644603511593, guid: 0acac9c719454e747882fdcdbddb80ca,
         type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6889821645152910589, guid: 0acac9c719454e747882fdcdbddb80ca,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1017219382905999411, guid: d2a1f66053e061344933d2f306360f9a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0acac9c719454e747882fdcdbddb80ca, type: 3}
 --- !u!4 &790367063 stripped
