@@ -18,6 +18,11 @@ public class SystemHolder : MonoBehaviour
         GameSystem.OnTick();
     }
 
+    public void LateUpdate()
+    {
+        GameSystem.OnLateTick();
+    }
+
     public GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         return Instantiate(prefab, position, rotation);

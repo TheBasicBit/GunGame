@@ -16,6 +16,7 @@ public static class GameSystem
     public static PlayerCamera PlayerCamera { get => SystemHolder.playerCamera.GetComponent<PlayerCamera>(); }
     public static Client Client { get; } = new Client(Config.ServerAddress, Config.ServerPort);
     public static List<Action> SyncActions { get; } = new List<Action>();
+    public static List<Action> LateSyncActions { get; } = new List<Action>();
 
     public static Stopwatch KeepAliveTimer { get; } = new Stopwatch();
     public static Stopwatch PositionTimer { get; } = new Stopwatch();
@@ -63,9 +64,23 @@ public static class GameSystem
         }
     }
 
+    public static void OnLateTick()
+    {
+        while (LateSyncActions.Count != 0)
+        {
+            LateSyncActions.Last().Invoke();
+            LateSyncActions.RemoveAt(LateSyncActions.Count - 1);
+        }
+    }
+
     public static void RunSync(Action action)
     {
         SyncActions.Add(action);
+    }
+
+    public static void RunLateSync(Action action)
+    {
+        LateSyncActions.Add(action);
     }
 
     public static GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
