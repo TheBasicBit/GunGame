@@ -8,9 +8,10 @@ namespace BaseSystem.Network.Server
 {
     public class BulletManager
     {
-        public Server Server { get; }
-
         private readonly IDManager bulletIdManager = new IDManager();
+        private readonly List<ServerSideBullet> bullets = new List<ServerSideBullet>();
+
+        public Server Server { get; }
 
         public BulletManager(Server server)
         {
@@ -21,8 +22,11 @@ namespace BaseSystem.Network.Server
         {
         }
 
-        public void Create(float posX, float posY, float posZ, float yaw, float pitch)
+        public ServerSideBullet Create(float posX, float posY, float posZ, float yaw, float pitch)
         {
+            ServerSideBullet serverSideBullet = new ServerSideBullet(bulletIdManager.CreateNewID());
+            bullets.Add(serverSideBullet);
+            return serverSideBullet;
         }
     }
 }
