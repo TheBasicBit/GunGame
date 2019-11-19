@@ -48,17 +48,6 @@ public class Player : MonoBehaviour
         UpdateMovement();
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        GameObject gameObject = collision.gameObject;
-
-        if (gameObject.HasComponent<Bullet>())
-        {
-            gameObject.Destroy();
-            Debug.Log("Aua :(");
-        }
-    }
-
     public void LostGround()
     {
         if (!isJumping)

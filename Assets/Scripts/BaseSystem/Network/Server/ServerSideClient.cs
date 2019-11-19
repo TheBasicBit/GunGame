@@ -93,11 +93,12 @@ namespace BaseSystem.Network.Server
                         client.SendPacket(new ClientPositionPacket()
                         {
                             clientId = Id,
-                            x = positionPacket.x,
-                            y = positionPacket.y,
-                            z = positionPacket.z,
-                            yaw = positionPacket.yaw,
-                            pitch = positionPacket.pitch
+                            posX = positionPacket.posX,
+                            posY = positionPacket.posY,
+                            posZ = positionPacket.posZ,
+                            rotX = positionPacket.rotX,
+                            rotY = positionPacket.rotY,
+                            rotZ = positionPacket.rotZ
                         });
                     }
                 }
