@@ -93,6 +93,11 @@ public static class GameSystem
         SystemHolder.DestroyObject(gameObject);
     }
 
+    public static void Destroy(this GameObject gameObject)
+    {
+        DestroyObject(gameObject);
+    }
+
     public static void DestroyObject(MonoBehaviour script)
     {
         DestroyObject(script.gameObject);
@@ -115,5 +120,10 @@ public static class GameSystem
         {
             return null;
         }
+    }
+
+    public static bool HasComponent<T>(this GameObject obj)
+    {
+        return obj.GetComponent<T>() != null;
     }
 }

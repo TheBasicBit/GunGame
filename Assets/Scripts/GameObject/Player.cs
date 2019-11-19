@@ -48,6 +48,17 @@ public class Player : MonoBehaviour
         UpdateMovement();
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        GameObject gameObject = collision.gameObject;
+
+        if (gameObject.HasComponent<Bullet>())
+        {
+            gameObject.Destroy();
+            Debug.Log("Aua :(");
+        }
+    }
+
     public void LostGround()
     {
         if (!isJumping)
@@ -130,13 +141,6 @@ public class Player : MonoBehaviour
         lastShoot = Time.time;
         Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
         Vector3 rotation = GameSystem.PlayerCamera.transform.eulerAngles;
-
-        /*
-
-        GameObject obj = Instantiate(bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
-        Bullet bullet = obj.GetComponent<Bullet>();
-        bullet.startPosition = startPosition;
-        */
 
         NetworkManager.SendPacket(new ShootPacket()
         {
