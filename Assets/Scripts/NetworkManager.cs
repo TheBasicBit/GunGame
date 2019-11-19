@@ -70,5 +70,15 @@ public static class NetworkManager
                 }
             }));
         }
+        else if (packet is BulletCreatePacket bulletCreatePacket)
+        {
+            GameSystem.RunSync(new Action(() =>
+            {
+                Vector3 startPosition = new Vector3(bulletCreatePacket.posX, bulletCreatePacket.posY, bulletCreatePacket.posZ);
+                GameObject obj = GameSystem.CreateObject(GameSystem.Player.bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
+                Bullet bullet = obj.GetComponent<Bullet>();
+                bullet.startPosition = startPosition;
+            }));
+        }
     }
 }

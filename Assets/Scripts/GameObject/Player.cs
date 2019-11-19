@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BaseSystem.Network.Packets;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -128,8 +129,23 @@ public class Player : MonoBehaviour
     {
         lastShoot = Time.time;
         Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.25f));
+        Vector3 rotation = GameSystem.PlayerCamera.transform.eulerAngles;
+
+        /*
+
         GameObject obj = Instantiate(bulletPrefab, startPosition, GameSystem.PlayerCamera.transform.rotation);
         Bullet bullet = obj.GetComponent<Bullet>();
         bullet.startPosition = startPosition;
+        */
+
+        NetworkManager.SendPacket(new ShootPacket()
+        {
+            posX = startPosition.x,
+            posY = startPosition.y,
+            posZ = startPosition.z,
+            rotX = rotation.x,
+            rotY = rotation.y,
+            rotZ = rotation.z
+        });
     }
 }

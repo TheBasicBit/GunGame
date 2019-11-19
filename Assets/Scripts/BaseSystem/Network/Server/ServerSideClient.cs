@@ -102,6 +102,22 @@ namespace BaseSystem.Network.Server
                     }
                 }
             }
+            else if (packet is ShootPacket clientShootPacket)
+            {
+                foreach (ServerSideClient client in Server.Clients)
+                {
+                    client.SendPacket(new BulletCreatePacket()
+                    {
+                        clientId = Id,
+                        posX = clientShootPacket.posX,
+                        posY = clientShootPacket.posY,
+                        posZ = clientShootPacket.posZ,
+                        rotX = clientShootPacket.rotX,
+                        rotY = clientShootPacket.rotY,
+                        rotZ = clientShootPacket.rotZ
+                    });
+                }
+            }
         }
 
         public void Disconnect(string reason)
