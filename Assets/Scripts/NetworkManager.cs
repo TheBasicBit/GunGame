@@ -50,7 +50,7 @@ public static class NetworkManager
                 try
                 {
                     OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
-                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(0, clientPositionPacket.rotY, clientPositionPacket.rotZ), 0.2f);
+                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(clientPositionPacket.rotX, clientPositionPacket.rotY, clientPositionPacket.rotZ), 0.2f);
                 }
                 catch (KeyNotFoundException)
                 {
