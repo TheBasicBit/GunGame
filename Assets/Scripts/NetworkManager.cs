@@ -50,7 +50,7 @@ public static class NetworkManager
                 try
                 {
                     OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
-                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(clientPositionPacket.rotX, clientPositionPacket.rotY, clientPositionPacket.rotZ), 0.2f);
+                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(clientPositionPacket.rotX, clientPositionPacket.rotY, 0), 0.2f);
                 }
                 catch (KeyNotFoundException)
                 {
@@ -63,7 +63,7 @@ public static class NetworkManager
                 {
                     OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
                     GameObject rotBone = otherPlayer.GetChildWithName("mesh_otherPlayer/Test Rig/spine/Penis/spine.002/spine.003/RotBone");
-                    rotBone.transform.eulerAngles = new Vector3(0, 0, 0);
+                    rotBone.transform.eulerAngles = new Vector3(clientPositionPacket.rotX, 0, 0);
                 }
                 catch (KeyNotFoundException)
                 {
