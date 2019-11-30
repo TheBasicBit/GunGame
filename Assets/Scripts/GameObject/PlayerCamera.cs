@@ -8,7 +8,6 @@ public class PlayerCamera : MonoBehaviour
     public float cameraRotationSpeed = 3;
 
     public float cameraWalkAnimationPower = 3;
-    public float currentCameraWalkAnimationPower;
 
     public float interpolationSpeed = 1;
 
@@ -17,8 +16,13 @@ public class PlayerCamera : MonoBehaviour
     public float yaw;
     public float pitch;
 
+    public float startPosY;
+    public float currentCameraWalkAnimationPower;
+    public float currentCameraWalkAnimationPowerVertical;
+
     public void Start()
     {
+        startPosY = transform.localPosition.y;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -26,9 +30,36 @@ public class PlayerCamera : MonoBehaviour
     {
         SetRotation(yaw + (cameraRotationSpeed * Input.GetAxis("Mouse X")), pitch - (cameraRotationSpeed * Input.GetAxis("Mouse Y")));
 
-        float endCameraWalkAnimationPower = (float)Math.Sin(Time.time);
+        float endCameraWalkAnimationPower = 0;
 
-        transform.localPosition = new Vector3(endCameraWalkAnimationPower, transform.localPosition.y, transform.localPosition.z);
+        if (GameSystem.Player.isWalking)
+        {
+            endCameraWalkAnimationPower = (float)Math.Sin(Time.time * 10) / 20 * cameraWalkAnimationPower;
+        }
+
+        if (currentCameraWalkAnimationPower != endCameraWalkAnimationPower)
+        {
+            if (currentCameraWalkAnimationPower > endCameraWalkAnimationPower)
+            {
+                currentCameraWalkAnimationPower -= Time.deltaTime * interpolationSpeed;
+
+                if (currentCameraWalkAnimationPower < endCameraWalkAnimationPower)
+                {
+                    currentCameraWalkAnimationPower = endCameraWalkAnimationPower;
+                }
+            }
+            else
+            {
+                currentCameraWalkAnimationPower += Time.deltaTime * interpolationSpeed;
+
+                if (currentCameraWalkAnimationPower > endCameraWalkAnimationPower)
+                {
+                    currentCameraWalkAnimationPower = endCameraWalkAnimationPower;
+                }
+            }
+        }
+
+        transform.localPosition = new Vector3(currentCameraWalkAnimationPower, startPosY - ((currentCameraWalkAnimationPower < 0 ? currentCameraWalkAnimationPower * -1 : currentCameraWalkAnimationPower) / 1.75f), transform.localPosition.z);
     }
 
     public void SetRotation(float yaw, float pitch)

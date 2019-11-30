@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public float currentSpeed;
     public float verticalForce;
     public float lastShoot = 0;
+    public bool isWalking = false;
     public bool isJumping = false;
     public bool isDoubleJumping = false;
     public bool onGround = false;
@@ -118,6 +119,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        isWalking = Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
 
         Vector3 vectorXZ = new Vector3(Input.GetAxisRaw("Horizontal") * currentSpeed * Time.deltaTime, 0, Input.GetAxisRaw("Vertical") * currentSpeed * Time.deltaTime);
         Vector3 vectorY = new Vector3(0, verticalForce * Time.deltaTime, 0);
