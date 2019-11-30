@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     public float walkSpeed = 3;
     public float sprintSpeed = 7;
+    public float interpolationSpeed = 1;
 
     public float jumpForce = 6;
     public float jumpWallUpHeight = 100;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 
     public bool _________________________________________________;
 
+    public float currentSpeed;
     public float verticalForce;
     public float lastShoot = 0;
     public bool isJumping = false;
@@ -29,16 +31,13 @@ public class Player : MonoBehaviour
     public bool onGround = false;
     public bool lastOnGround = false;
 
-    public Player()
-    {
-        verticalForce = -gravity;
-    }
-
     public CharacterController CharacterController { get; set; }
     public bool IsGrounded { get; set; }
 
     public void Start()
     {
+        verticalForce = -gravity;
+        currentSpeed = walkSpeed;
         CharacterController = GetComponent<CharacterController>();
         CharacterController.slopeLimit = stepUpHeight;
     }
@@ -96,9 +95,31 @@ public class Player : MonoBehaviour
             verticalForce = -gravity;
         }
 
-        float speed = Input.GetKey(sprintKey) ? sprintSpeed : walkSpeed;
+        float endSpeed = Input.GetKey(sprintKey) ? sprintSpeed : walkSpeed;
 
-        Vector3 vectorXZ = new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime);
+        if (currentSpeed != endSpeed)
+        {
+            if (currentSpeed > endSpeed)
+            {
+                currentSpeed -= Time.deltaTime * interpolationSpeed;
+
+                if (currentSpeed < endSpeed)
+                {
+                    currentSpeed = endSpeed;
+                }
+            }
+            else
+            {
+                currentSpeed += Time.deltaTime * interpolationSpeed;
+
+                if (currentSpeed > endSpeed)
+                {
+                    currentSpeed = endSpeed;
+                }
+            }
+        }
+
+        Vector3 vectorXZ = new Vector3(Input.GetAxisRaw("Horizontal") * currentSpeed * Time.deltaTime, 0, Input.GetAxisRaw("Vertical") * currentSpeed * Time.deltaTime);
         Vector3 vectorY = new Vector3(0, verticalForce * Time.deltaTime, 0);
 
         CharacterController.Move(transform.TransformDirection(Vector3.ClampMagnitude(vectorXZ, 1) + vectorY));
