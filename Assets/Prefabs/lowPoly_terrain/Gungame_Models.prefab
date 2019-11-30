@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3940242044200006366}
   - component: {fileID: 5473434838119123176}
   - component: {fileID: 1785961575188624401}
-  - component: {fileID: 8346359290073102316}
   m_Layer: 0
   m_Name: Gungame_Models
   m_TagString: Untagged
@@ -81,17 +80,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &8346359290073102316
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69195134198038733}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -2340012884410144920, guid: 5e7705eff26d681459e456925e29b6b7, type: 3}
