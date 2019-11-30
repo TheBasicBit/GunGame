@@ -5,7 +5,12 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float speed = 3;
+    public float cameraRotationSpeed = 3;
+
+    public float cameraWalkAnimationPower = 3;
+    public float currentCameraWalkAnimationPower;
+
+    public float interpolationSpeed = 1;
 
     public bool _________________________________________________;
 
@@ -19,7 +24,11 @@ public class PlayerCamera : MonoBehaviour
 
     public void Update()
     {
-        SetRotation(yaw + (speed * Input.GetAxis("Mouse X")), pitch - (speed * Input.GetAxis("Mouse Y")));
+        SetRotation(yaw + (cameraRotationSpeed * Input.GetAxis("Mouse X")), pitch - (cameraRotationSpeed * Input.GetAxis("Mouse Y")));
+
+        float endCameraWalkAnimationPower = (float)Math.Sin(Time.time);
+
+        transform.localPosition = new Vector3(endCameraWalkAnimationPower, transform.localPosition.y, transform.localPosition.z);
     }
 
     public void SetRotation(float yaw, float pitch)
