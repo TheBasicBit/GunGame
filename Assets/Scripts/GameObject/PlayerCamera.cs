@@ -9,8 +9,6 @@ public class PlayerCamera : MonoBehaviour
 
     public float cameraWalkAnimationPower = 3;
 
-    public float interpolationSpeed = 1;
-
     public bool _________________________________________________;
 
     public float yaw;
@@ -41,7 +39,7 @@ public class PlayerCamera : MonoBehaviour
         {
             if (currentCameraWalkAnimationPower > endCameraWalkAnimationPower)
             {
-                currentCameraWalkAnimationPower -= Time.deltaTime * interpolationSpeed;
+                currentCameraWalkAnimationPower -= Time.deltaTime * 10;
 
                 if (currentCameraWalkAnimationPower < endCameraWalkAnimationPower)
                 {
@@ -50,7 +48,7 @@ public class PlayerCamera : MonoBehaviour
             }
             else
             {
-                currentCameraWalkAnimationPower += Time.deltaTime * interpolationSpeed;
+                currentCameraWalkAnimationPower += Time.deltaTime * 10;
 
                 if (currentCameraWalkAnimationPower > endCameraWalkAnimationPower)
                 {

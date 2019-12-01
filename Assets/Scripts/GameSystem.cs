@@ -8,6 +8,8 @@ using UnityEngine;
 using BaseSystem;
 using BaseSystem.Network.Packets;
 using BaseSystem.Network;
+using Debug = UnityEngine.Debug;
+using UnityEngine.SceneManagement;
 
 public static class GameSystem
 {

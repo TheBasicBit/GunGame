@@ -53,7 +53,15 @@ namespace BaseSystem.Network
         {
             get
             {
-                return tcpClient.Connected && Stream.DataAvailable;
+                return Connected && Stream.DataAvailable;
+            }
+        }
+
+        public bool Connected
+        {
+            get
+            {
+                return tcpClient.Connected;
             }
         }
 
