@@ -61,9 +61,11 @@ public static class NetworkManager
             {
                 try
                 {
+                    Debug.Log(clientPositionPacket.rotX + ", " + clientPositionPacket.rotY);
+
                     OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
                     GameObject rotBone = otherPlayer.GetChildWithName("mesh_otherPlayer/Test Rig/spine/Penis/spine.002/spine.003/RotBone");
-                    rotBone.transform.eulerAngles = new Vector3(clientPositionPacket.rotX, clientPositionPacket.rotY, 90);
+                    rotBone.transform.localEulerAngles = new Vector3(clientPositionPacket.rotX, 0, clientPositionPacket.rotZ);
                 }
                 catch (KeyNotFoundException)
                 {

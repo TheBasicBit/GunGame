@@ -56,6 +56,21 @@ namespace BaseSystem.Network.Server
                     });
                 }
             }
+
+            if (Config.DebugMode)
+            {
+                SendPacket(new ClientConnectPacket()
+                {
+                    clientId = Id,
+                    posX = 0,
+                    posY = 0,
+                    posZ = 0,
+                    rotX = 0,
+                    rotY = 0,
+                    rotZ = 0
+                });
+            }
+
             keepAliveTimer.Start();
         }
 
@@ -88,7 +103,7 @@ namespace BaseSystem.Network.Server
             {
                 foreach (ServerSideClient client in Server.Clients)
                 {
-                    if (client != this)
+                    if (client != this || Config.DebugMode)
                     {
                         client.SendPacket(new ClientPositionPacket()
                         {

@@ -62,7 +62,7 @@ public static class GameSystem
         if (PositionTimer.ElapsedMilliseconds > 200)
         {
             PositionTimer.Restart();
-            Client.SendPacket(new PositionPacket() { posX = pos.x, posY = pos.y, posZ = pos.z, rotX = Player.transform.eulerAngles.x, rotY = PlayerCamera.transform.eulerAngles.y, rotZ = PlayerCamera.transform.eulerAngles.z });
+            Client.SendPacket(new PositionPacket() { posX = pos.x, posY = pos.y, posZ = pos.z, rotX = PlayerCamera.transform.eulerAngles.x, rotY = PlayerCamera.transform.eulerAngles.y, rotZ = PlayerCamera.transform.eulerAngles.z });
         }
     }
 
