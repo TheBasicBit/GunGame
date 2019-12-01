@@ -8,7 +8,7 @@ namespace BaseSystem
 {
     public static class Config
     {
-        public static bool DebugMode { get; set; } = true;
+        public static bool DebugMode { get; set; } = false;
 
         public static string ServerAddress { get => DebugMode ? "127.0.0.1" : "134.255.232.43"; }
         public static int ServerPort { get; } = 19489;
