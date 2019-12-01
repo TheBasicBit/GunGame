@@ -8,9 +8,11 @@ namespace BaseSystem
 {
     public static class Config
     {
-        public const bool DebugMode = false;
+        public static bool DebugMode { get; set; } = true;
 
-        public const string ServerAddress = DebugMode ? "127.0.0.1" : "134.255.232.43";
-        public const int ServerPort = 19489;
+        public static string ServerAddress { get => DebugMode ? "127.0.0.1" : "134.255.232.43"; }
+        public static int ServerPort { get; } = 19489;
+
+        public static int ControlServerPort { get; } = 19877;
     }
 }

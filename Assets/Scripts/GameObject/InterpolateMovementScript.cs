@@ -5,7 +5,6 @@ using UnityEngine;
 public class InterpolateMovementScript : MonoBehaviour
 {
     private float startTime;
-    private float endTime;
     private float timeDiff;
 
     private Vector3 startPos;
@@ -48,8 +47,7 @@ public class InterpolateMovementScript : MonoBehaviour
         diffRot = endRot - startRot;
 
         startTime = Time.time;
-        endTime = startTime + seconds;
-        timeDiff = endTime - startTime;
+        timeDiff = startTime + seconds - startTime;
 
         moving = true;
     }
