@@ -9,6 +9,8 @@ public class PlayerCamera : MonoBehaviour
 
     public float cameraWalkAnimationPower = 3;
 
+    public KeyCode switchMouseLocked = KeyCode.Escape;
+
     public bool _________________________________________________;
 
     public float yaw;
@@ -18,6 +20,8 @@ public class PlayerCamera : MonoBehaviour
     public float currentCameraWalkAnimationPower;
     public float currentCameraWalkAnimationPowerVertical;
 
+    public bool mouseLocked = true;
+
     public void Start()
     {
         startPosY = transform.localPosition.y;
@@ -26,7 +30,20 @@ public class PlayerCamera : MonoBehaviour
 
     public void Update()
     {
-        SetRotation(yaw + (cameraRotationSpeed * Input.GetAxis("Mouse X")), pitch - (cameraRotationSpeed * Input.GetAxis("Mouse Y")));
+        if (Input.GetKeyDown(switchMouseLocked))
+        {
+            mouseLocked = !mouseLocked;
+        }
+
+        if (mouseLocked)
+        {
+            SetRotation(yaw + (cameraRotationSpeed * Input.GetAxis("Mouse X")), pitch - (cameraRotationSpeed * Input.GetAxis("Mouse Y")));
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
 
         float endCameraWalkAnimationPower = 0;
 
