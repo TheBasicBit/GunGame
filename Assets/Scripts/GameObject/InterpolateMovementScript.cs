@@ -15,23 +15,30 @@ public class InterpolateMovementScript : MonoBehaviour
     private Vector3 endRot;
     private Vector3 diffRot;
 
-    private bool moving = false;
+    private int moveMode = -1;
 
     public void Update()
     {
-        if (moving)
+        if (moveMode > -1)
         {
             float state = (Time.time - startTime) / timeDiff;
 
-            if (state >= 1)
+            if (moveMode == 0)
             {
-                transform.position = endPos;
-                transform.eulerAngles = endRot;
+                if (state >= 1)
+                {
+                    transform.position = endPos;
+                    transform.eulerAngles = endRot;
+                }
+                else
+                {
+                    transform.position = startPos + (diffPos * state);
+                    transform.eulerAngles = startRot + (diffRot * state);
+                }
             }
-            else
+            else if (moveMode == 1)
             {
-                transform.position = startPos + (diffPos * state);
-                transform.eulerAngles = startRot + (diffRot * state);
+                transform.localEulerAngles = startRot + (diffRot * state);
             }
         }
     }
@@ -49,6 +56,18 @@ public class InterpolateMovementScript : MonoBehaviour
         startTime = Time.time;
         timeDiff = startTime + seconds - startTime;
 
-        moving = true;
+        moveMode = 0;
+    }
+
+    public void MoveLocalEulerAnglesTo(Vector3 rot, float seconds)
+    {
+        startRot = transform.localEulerAngles;
+        endRot = rot;
+        diffRot = endRot - startRot;
+
+        startTime = Time.time;
+        timeDiff = startTime + seconds - startTime;
+
+        moveMode = 1;
     }
 }

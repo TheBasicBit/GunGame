@@ -8,11 +8,6 @@ using UnityEngine;
 
 public static class NetworkManager
 {
-    public static void SendPacket<T>(T packet) where T : struct
-    {
-        GameSystem.Client.SendPacket(packet);
-    }
-
     public static void OnPacket(object packet)
     {
         if (packet is ClientConnectPacket clientConnectPacket)
@@ -50,18 +45,8 @@ public static class NetworkManager
                 try
                 {
                     OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
-                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(0, clientPositionPacket.rotY, 0), 0.2f);
-                }
-                catch (KeyNotFoundException)
-                {
-                }
-            }));
+                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(0, clientPositionPacket.rotY, 0), 0.1f);
 
-            GameSystem.RunLateSync(new Action(() =>
-            {
-                try
-                {
-                    OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
                     GameObject rotBone = otherPlayer.GetChildWithName("mesh_otherPlayer/Test Rig/spine/spine.001/spine.002/spine.003/RotBone");
                     rotBone.transform.localEulerAngles = new Vector3(clientPositionPacket.rotX, 0, clientPositionPacket.rotZ);
                 }

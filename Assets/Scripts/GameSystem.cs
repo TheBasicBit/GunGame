@@ -59,7 +59,7 @@ public static class GameSystem
 
         Vector3 pos = Player.transform.position;
 
-        if (PositionTimer.ElapsedMilliseconds > 200)
+        if (PositionTimer.ElapsedMilliseconds > 100)
         {
             PositionTimer.Restart();
             Client.SendPacket(new PositionPacket() { posX = pos.x, posY = pos.y, posZ = pos.z, rotX = PlayerCamera.transform.eulerAngles.x, rotY = PlayerCamera.transform.eulerAngles.y, rotZ = PlayerCamera.transform.eulerAngles.z });

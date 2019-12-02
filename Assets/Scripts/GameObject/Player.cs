@@ -155,7 +155,7 @@ public class Player : MonoBehaviour
         Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.75f));
         Vector3 rotation = GameSystem.PlayerCamera.transform.eulerAngles;
 
-        NetworkManager.SendPacket(new ShootPacket()
+        GameSystem.Client.SendPacket(new ShootPacket()
         {
             posX = startPosition.x,
             posY = startPosition.y,
