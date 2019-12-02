@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1017219382905999411}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 7.1073, y: 6.7526, z: -1.74}
-  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 40
+  power: 60
   maxFlyWide: 100
   _________________________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}

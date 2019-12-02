@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1139087760280732845}
   - component: {fileID: 1495587246684694708}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: bullet_alt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 10
+  power: 200
   maxFlyWide: 50
   _________________________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
