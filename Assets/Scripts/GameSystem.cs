@@ -90,6 +90,11 @@ public static class GameSystem
         return SystemHolder.CreateObject(prefab, position, rotation);
     }
 
+    public static GameObject CreateObject(this GameObject parent, GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        return SystemHolder.CreateObject(parent, prefab, position, rotation);
+    }
+
     public static void DestroyObject(GameObject gameObject)
     {
         SystemHolder.DestroyObject(gameObject);

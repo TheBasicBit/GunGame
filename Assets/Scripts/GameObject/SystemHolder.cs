@@ -8,6 +8,7 @@ public class SystemHolder : MonoBehaviour
     public GameObject playerCamera;
     public GameObject otherPlayer;
     public GameObject bullet;
+    public GameObject bulletContainer;
 
     public void Start()
     {
@@ -27,6 +28,11 @@ public class SystemHolder : MonoBehaviour
     public GameObject CreateObject(GameObject prefab, Vector3 position, Quaternion rotation)
     {
         return Instantiate(prefab, position, rotation);
+    }
+
+    public GameObject CreateObject(GameObject parent, GameObject prefab, Vector3 position, Quaternion rotation)
+    {
+        return Instantiate(prefab, position, rotation, parent.transform);
     }
 
     public void DestroyObject(GameObject gameObject)

@@ -5506,6 +5506,7 @@ MonoBehaviour:
   otherPlayer: {fileID: 3929618723057068664, guid: ddb107829851f3446a2ce7a25bfb9cad,
     type: 3}
   bullet: {fileID: 485451526237441022, guid: 2ea9bfcea7ef73244abc39b6ea7ceeca, type: 3}
+  bulletContainer: {fileID: 890430372}
 --- !u!4 &163061126
 Transform:
   m_ObjectHideFlags: 0
@@ -9338,7 +9339,7 @@ PrefabInstance:
     - target: {fileID: 3425022934665016299, guid: f4bcec4f6196e584eb55b01f8246a8c6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3425022934665016299, guid: f4bcec4f6196e584eb55b01f8246a8c6,
         type: 3}
@@ -67899,7 +67900,7 @@ PrefabInstance:
     - target: {fileID: 401649069906305124, guid: 0acac9c719454e747882fdcdbddb80ca,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 401649069906305124, guid: 0acac9c719454e747882fdcdbddb80ca,
         type: 3}
