@@ -5505,6 +5505,7 @@ MonoBehaviour:
   playerCamera: {fileID: 164438555}
   otherPlayer: {fileID: 3929618723057068664, guid: ddb107829851f3446a2ce7a25bfb9cad,
     type: 3}
+  bullet: {fileID: 1017219382905999411, guid: d2a1f66053e061344933d2f306360f9a, type: 3}
 --- !u!4 &163061126
 Transform:
   m_ObjectHideFlags: 0

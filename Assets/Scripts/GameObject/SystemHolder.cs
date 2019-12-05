@@ -7,6 +7,7 @@ public class SystemHolder : MonoBehaviour
     public GameObject player;
     public GameObject playerCamera;
     public GameObject otherPlayer;
+    public GameObject bullet;
 
     public void Start()
     {

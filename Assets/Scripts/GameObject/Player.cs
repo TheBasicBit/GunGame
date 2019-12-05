@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-
     public float gravity = 15;
 
     public float walkSpeed = 3;
