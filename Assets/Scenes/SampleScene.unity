@@ -26807,7 +26807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890430373}
   m_Layer: 0
-  m_Name: Bullet Container
+  m_Name: '@Bullet Container'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
