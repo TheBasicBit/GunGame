@@ -9,6 +9,7 @@ public class SystemHolder : MonoBehaviour
     public GameObject otherPlayer;
     public GameObject bullet;
     public GameObject bulletContainer;
+    public GameObject playerContainer;
 
     public void Start()
     {

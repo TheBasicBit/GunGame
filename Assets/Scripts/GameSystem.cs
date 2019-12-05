@@ -117,7 +117,7 @@ public static class GameSystem
 
     public static void SpawnPlayer(int id, Vector3 position, Vector3 rotation)
     {
-        CreateObject(SystemHolder.otherPlayer, position, Quaternion.Euler(rotation)).GetComponent<OtherPlayer>().id = id;
+        SystemHolder.playerContainer.CreateObject(SystemHolder.otherPlayer, position, Quaternion.Euler(rotation)).GetComponent<OtherPlayer>().id = id;
     }
 
     public static GameObject GetChildWithName(this MonoBehaviour obj, string name)
