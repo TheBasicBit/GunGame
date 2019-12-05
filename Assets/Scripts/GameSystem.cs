@@ -100,6 +100,11 @@ public static class GameSystem
         DestroyObject(gameObject);
     }
 
+    public static Vector3 ToAngle(this Vector3 vector)
+    {
+        return new Vector3(vector.x % 360f, vector.y % 360f, vector.z % 360f);
+    }
+
     public static void DestroyObject(MonoBehaviour script)
     {
         DestroyObject(script.gameObject);

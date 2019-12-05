@@ -49,9 +49,39 @@ public class InterpolateMovementScript : MonoBehaviour
         endPos = pos;
         diffPos = endPos - startPos;
 
-        startRot = transform.eulerAngles;
-        endRot = rot;
-        diffRot = endRot - startRot;
+        startRot = transform.localEulerAngles;
+        endRot = rot.ToAngle();
+
+        Vector3 diff = (endRot - startRot).ToAngle();
+
+        if (diff.x > 180)
+        {
+            diff = new Vector3(diff.x - 360, diff.y, diff.z);
+        }
+        else if (diff.x < -180)
+        {
+            diff = new Vector3(diff.x + 360, diff.y, diff.z);
+        }
+
+        if (diff.y > 180)
+        {
+            diff = new Vector3(diff.x, diff.y - 360, diff.z);
+        }
+        else if (diff.y < -180)
+        {
+            diff = new Vector3(diff.x, diff.y + 360, diff.z);
+        }
+
+        if (diff.y > 180)
+        {
+            diff = new Vector3(diff.x, diff.y, diff.z - 360);
+        }
+        else if (diff.y < -180)
+        {
+            diff = new Vector3(diff.x, diff.y, diff.z + 360);
+        }
+
+        diffRot = diff;
 
         startTime = Time.time;
         timeDiff = startTime + seconds - startTime;
@@ -62,8 +92,38 @@ public class InterpolateMovementScript : MonoBehaviour
     public void MoveLocalEulerAnglesTo(Vector3 rot, float seconds)
     {
         startRot = transform.localEulerAngles;
-        endRot = rot;
-        diffRot = endRot - startRot;
+        endRot = rot.ToAngle();
+
+        Vector3 diff = (endRot - startRot).ToAngle();
+
+        if (diff.x > 180)
+        {
+            diff = new Vector3(diff.x - 360, diff.y, diff.z);
+        }
+        else if (diff.x < -180)
+        {
+            diff = new Vector3(diff.x + 360, diff.y, diff.z);
+        }
+
+        if (diff.y > 180)
+        {
+            diff = new Vector3(diff.x, diff.y - 360, diff.z);
+        }
+        else if (diff.y < -180)
+        {
+            diff = new Vector3(diff.x, diff.y + 360, diff.z);
+        }
+
+        if (diff.y > 180)
+        {
+            diff = new Vector3(diff.x, diff.y, diff.z - 360);
+        }
+        else if (diff.y < -180)
+        {
+            diff = new Vector3(diff.x, diff.y, diff.z + 360);
+        }
+
+        diffRot = diff;
 
         startTime = Time.time;
         timeDiff = startTime + seconds - startTime;

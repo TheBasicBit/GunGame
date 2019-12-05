@@ -48,7 +48,8 @@ public static class NetworkManager
                     otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(0, clientPositionPacket.rotY, 0), 0.1f);
 
                     GameObject rotBone = otherPlayer.GetChildWithName("mesh_otherPlayer/Test Rig/spine/spine.001/spine.002/spine.003/RotBone");
-                    rotBone.transform.localEulerAngles = new Vector3(clientPositionPacket.rotX, 0, clientPositionPacket.rotZ);
+                    InterpolateMovementScript interpolateMovementScript = rotBone.GetComponent<InterpolateMovementScript>();
+                    interpolateMovementScript.MoveLocalEulerAnglesTo(new Vector3(clientPositionPacket.rotX, 0, clientPositionPacket.rotZ), 0.1f);
                 }
                 catch (KeyNotFoundException)
                 {
