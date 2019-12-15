@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public enum Layers
+public enum Layer
 {
-    Terrain = 10
+    Terrain = 10,
+    Bullet = 11,
+    Player = 12
 }
