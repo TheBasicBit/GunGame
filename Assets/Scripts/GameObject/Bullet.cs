@@ -19,10 +19,10 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    public void OnTriggerEnter(Collider collider)
-    {
-        gameObject.Destroy();
+        if (Physics.Raycast(new Ray(transform.position, transform.TransformDirection(Vector3.forward)), out RaycastHit hit, Time.deltaTime * power, LayerMask.GetMask("Terrain")))
+        {
+            Destroy(gameObject);
+        }
     }
 }
