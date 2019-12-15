@@ -5810,7 +5810,7 @@ MonoBehaviour:
   playerCamera: {fileID: 164438555}
   otherPlayer: {fileID: 3929618723057068664, guid: ddb107829851f3446a2ce7a25bfb9cad,
     type: 3}
-  bullet: {fileID: 1082110006899418638, guid: 7ef17f0c420b5ab479dbcbfdb815ea78, type: 3}
+  bullet: {fileID: 2442536512472483923, guid: f712af2fef369fa418b7d811df48d3f2, type: 3}
   bulletContainer: {fileID: 890430372}
   playerContainer: {fileID: 2065705432}
 --- !u!4 &163061126
