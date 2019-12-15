@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4168490511797730447}
   - component: {fileID: 3443603025793651832}
   - component: {fileID: 9093910062340043053}
+  - component: {fileID: 3467615776271124679}
   m_Layer: 0
   m_Name: mesh_bullet
   m_TagString: Untagged
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!65 &3467615776271124679
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2442536512472483923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00091341976, y: 0.00091341976, z: 0.0028656079}
+  m_Center: {x: 0.000000057101715, y: 0.0000000020954758, z: 0.0012543998}
