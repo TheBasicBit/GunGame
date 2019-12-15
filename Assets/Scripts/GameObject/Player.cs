@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
 
             if (bullet.shooterId != GameSystem.Id)
             {
-                Debug.Log("Aua :(");
+                Debug.Log("Shooted by: " + GameSystem.Id);
             }
         }
     }
