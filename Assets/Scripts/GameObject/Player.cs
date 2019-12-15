@@ -163,4 +163,12 @@ public class Player : MonoBehaviour
             rotZ = rotation.z
         });
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == (int)Layer.Bullet)
+        {
+            Debug.Log("Aua :(");
+        }
+    }
 }
