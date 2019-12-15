@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 4980344314310219798}
   - component: {fileID: 1594614769293403375}
   - component: {fileID: 4314828073085372138}
+<<<<<<< Updated upstream
   - component: {fileID: 6642185535942550986}
+=======
+  - component: {fileID: 508504792627861150}
+>>>>>>> Stashed changes
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -96,7 +100,11 @@ MonoBehaviour:
   maxFlyWide: 100
   _________________________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 --- !u!65 &6642185535942550986
+=======
+--- !u!65 &508504792627861150
+>>>>>>> Stashed changes
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
