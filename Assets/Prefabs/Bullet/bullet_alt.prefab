@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1495587246684694708}
   - component: {fileID: 8140559581591026850}
   - component: {fileID: 954085708002506145}
+  m_Layer: 0
   - component: {fileID: -7856835581402052532}
   m_Layer: 0
   m_Name: bullet_alt
