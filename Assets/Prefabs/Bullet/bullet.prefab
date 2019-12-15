@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4980344314310219798}
   - component: {fileID: 1594614769293403375}
   - component: {fileID: 4314828073085372138}
+  - component: {fileID: 6642185535942550986}
   m_Layer: 0
   m_Name: bullet
   m_TagString: Untagged
@@ -95,3 +96,16 @@ MonoBehaviour:
   maxFlyWide: 100
   _________________________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
+--- !u!65 &6642185535942550986
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017219382905999411}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00091341976, y: 0.00091341964, z: 0.0028656076}
+  m_Center: {x: 0.000000057101715, y: 0.0000000020954756, z: 0.0012543997}
