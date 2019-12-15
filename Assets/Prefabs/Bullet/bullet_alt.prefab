@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 7031874646839981142}
   - component: {fileID: 1139087760280732845}
   - component: {fileID: 1495587246684694708}
-  - component: {fileID: 4922329417961019636}
-  - component: {fileID: -7856835581402052532}
+  - component: {fileID: 8140559581591026850}
+  - component: {fileID: 954085708002506145}
   m_Layer: 0
   m_Name: bullet_alt
   m_TagString: Untagged
@@ -97,7 +97,20 @@ MonoBehaviour:
   maxFlyWide: 50
   _________________________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
---- !u!54 &4922329417961019636
+--- !u!65 &8140559581591026850
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082110006899418638}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &954085708002506145
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +125,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
+  m_CollisionDetection: 1
   m_CollisionDetection: 1
 --- !u!65 &-7856835581402052532
 BoxCollider:
