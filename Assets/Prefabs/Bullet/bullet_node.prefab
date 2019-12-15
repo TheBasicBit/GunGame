@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8392621430218481194}
   - component: {fileID: 8215342736319466035}
   - component: {fileID: 1771707922144131105}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: bullet_node
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooterId: 0
   power: 30
   maxFlyWide: 100
   _________________________________________________: 0

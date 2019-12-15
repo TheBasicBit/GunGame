@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3443603025793651832}
   - component: {fileID: 9093910062340043053}
   - component: {fileID: 3467615776271124679}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: mesh_bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooterId: 0
   power: 5
   maxFlyWide: 50
   _________________________________________________: 0

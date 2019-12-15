@@ -68290,6 +68290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: terrain
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 8a2d0ccf77da96a48beb99144c255ab3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 8a2d0ccf77da96a48beb99144c255ab3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72112,7 +72117,17 @@ PrefabInstance:
     - target: {fileID: 401649067998265876, guid: 0acac9c719454e747882fdcdbddb80ca,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 1815
+      value: 7168
+      objectReference: {fileID: 0}
+    - target: {fileID: 401649067998265876, guid: 0acac9c719454e747882fdcdbddb80ca,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 401649067998265876, guid: 0acac9c719454e747882fdcdbddb80ca,
+        type: 3}
+      propertyPath: field of view
+      value: 70
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0acac9c719454e747882fdcdbddb80ca, type: 3}

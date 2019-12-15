@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5601621350995461083}
   - component: {fileID: 2197894726665895714}
   - component: {fileID: 4470915578593897096}
-  m_Layer: 0
-  m_Name: Shrooooommm
+  m_Layer: 11
+  m_Name: bullet_shroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooterId: 0
   power: 1
   maxFlyWide: 100
   _________________________________________________: 0
