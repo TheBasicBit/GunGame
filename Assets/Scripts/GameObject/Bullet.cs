@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<Rigidbody>().AddForce(transform.TransformDirection(new Vector3(0, 0, power)), ForceMode.Force);
+        GetComponent<Rigidbody>().AddForce(transform.TransformDirection(new Vector3(0, 0, power * 1000)), ForceMode.Force);
     }
 
     public void Update()
