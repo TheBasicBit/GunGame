@@ -168,7 +168,12 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.HasComponent<Bullet>())
         {
-            Debug.Log("Aua :(");
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+
+            if (bullet.shooterId != GameSystem.Id)
+            {
+                Debug.Log("Aua :(");
+            }
         }
     }
 }

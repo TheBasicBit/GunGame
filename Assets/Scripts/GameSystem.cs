@@ -23,6 +23,8 @@ public static class GameSystem
     public static Stopwatch KeepAliveTimer { get; } = new Stopwatch();
     public static Stopwatch PositionTimer { get; } = new Stopwatch();
 
+    public static int Id { get; set; }
+
     public static void Main(SystemHolder systemHolder)
     {
         SystemHolder = systemHolder;

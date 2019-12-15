@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int shooterId;
+
     public float power;
     public float maxFlyWide;
 

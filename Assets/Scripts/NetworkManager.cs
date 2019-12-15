@@ -10,7 +10,13 @@ public static class NetworkManager
 {
     public static void OnPacket(object packet)
     {
-        if (packet is ClientConnectPacket clientConnectPacket)
+        if (packet is ClientIdPacket clientIdPacket)
+        {
+            GameSystem.Id = clientIdPacket.clientId;
+
+            Debug.Log("Your ID: " + GameSystem.Id);
+        }
+        else if (packet is ClientConnectPacket clientConnectPacket)
         {
             Debug.Log("Client[" + clientConnectPacket.clientId + "] connected: " + clientConnectPacket.clientId);
 
@@ -64,6 +70,7 @@ public static class NetworkManager
                 GameObject obj = GameSystem.SystemHolder.bulletContainer.CreateObject(GameSystem.SystemHolder.bullet, startPosition, Quaternion.Euler(bulletCreatePacket.rotX, bulletCreatePacket.rotY, bulletCreatePacket.rotZ));
                 Bullet bullet = obj.GetComponent<Bullet>();
                 bullet.startPosition = startPosition;
+                bullet.shooterId = bulletCreatePacket.clientId;
             }));
         }
     }

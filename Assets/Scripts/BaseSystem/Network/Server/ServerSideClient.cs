@@ -29,6 +29,8 @@ namespace BaseSystem.Network.Server
 
             Console.WriteLine(this + " connected.");
 
+            SendPacket(new ClientIdPacket() { clientId = Id });
+
             foreach (ServerSideClient otherClient in Server.Clients)
             {
                 if (this != otherClient)
