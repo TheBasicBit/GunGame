@@ -24,8 +24,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter()
+    public void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.layer == (int)Layers.Terrain)
+        {
+            Destroy(gameObject);
+        }
     }
 }
