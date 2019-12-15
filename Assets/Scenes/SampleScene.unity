@@ -5810,7 +5810,7 @@ MonoBehaviour:
   playerCamera: {fileID: 164438555}
   otherPlayer: {fileID: 3929618723057068664, guid: ddb107829851f3446a2ce7a25bfb9cad,
     type: 3}
-  bullet: {fileID: 1017219382905999411, guid: d2a1f66053e061344933d2f306360f9a, type: 3}
+  bullet: {fileID: 1082110006899418638, guid: 7ef17f0c420b5ab479dbcbfdb815ea78, type: 3}
   bulletContainer: {fileID: 890430372}
   playerContainer: {fileID: 2065705432}
 --- !u!4 &163061126
@@ -71854,7 +71854,7 @@ PrefabInstance:
     - target: {fileID: 401649067998265876, guid: 0acac9c719454e747882fdcdbddb80ca,
         type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 791
+      value: 1815
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0acac9c719454e747882fdcdbddb80ca, type: 3}
