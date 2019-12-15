@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == (int)Layer.Terrain || collision.gameObject.layer == (int)Layer.Player)
+        if (collision.gameObject.GetComponent<Player>() || collision.gameObject.layer == 10)
         {
             Destroy(gameObject);
         }
