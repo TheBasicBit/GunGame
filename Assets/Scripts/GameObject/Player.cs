@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == (int)Layer.Bullet)
+        if (collision.gameObject.HasComponent<Bullet>())
         {
             Debug.Log("Aua :(");
         }
