@@ -1,77 +1,88 @@
-﻿using BaseSystem.Network.Packets;
+﻿using BlindDeer.Network;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
+using BlindDeer;
 
-public static class NetworkManager
+namespace BlindDeer.GameBase
 {
-    public static void OnPacket(object packet)
+    public static class NetworkManager
     {
-        if (packet is ClientIdPacket clientIdPacket)
-        {
-            GameSystem.Id = clientIdPacket.clientId;
+        public static Connection Connection { get; private set; }
 
-            Debug.Log("Your ID: " + GameSystem.Id);
-        }
-        else if (packet is ClientConnectPacket clientConnectPacket)
-        {
-            Debug.Log("Client[" + clientConnectPacket.clientId + "] connected: " + clientConnectPacket.clientId);
-
-            GameSystem.RunSync(new Action(() =>
-            {
-                GameSystem.SpawnPlayer(clientConnectPacket.clientId, new Vector3(clientConnectPacket.posX, clientConnectPacket.posY, clientConnectPacket.posZ), new Vector3(clientConnectPacket.rotX, clientConnectPacket.rotY, clientConnectPacket.rotZ));
-            }));
-        }
-        else if (packet is ClientQuitPacket clientDisconnectPacket)
+        public static bool Connect()
         {
             try
             {
-                Debug.Log("Client[" + clientDisconnectPacket.clientId + "] disconnected: " + clientDisconnectPacket.clientId);
+                if (!ConnectToLocalServer())
+                {
+                    Connection = new Connection(new TcpClient(BlindDeerGames.SERVER_ADDRESS, BlindDeerGames.SERVER_PORT));
+                    Connection.Closed += Connection_Closed;
+                    Connection.Output += Connection_Output;
 
-                GameSystem.RunSync(new Action(() =>
-                {
-                    OtherPlayer.OtherPlayers[clientDisconnectPacket.clientId].Destroy();
-                }));
-            }
-            catch (KeyNotFoundException)
-            {
-            }
-        }
-        else if (packet is ChatMessagePacket chatMessagePacket)
-        {
-            Debug.Log("Chat: " + chatMessagePacket.message);
-        }
-        else if (packet is ClientPositionPacket clientPositionPacket)
-        {
-            GameSystem.RunSync(new Action(() =>
-            {
-                try
-                {
-                    OtherPlayer otherPlayer = OtherPlayer.OtherPlayers[clientPositionPacket.clientId];
-                    otherPlayer.MoveTo(new Vector3(clientPositionPacket.posX, clientPositionPacket.posY, clientPositionPacket.posZ), new Vector3(0, clientPositionPacket.rotY, 0), 0.1f);
+                    Logger.LogInfo("Connected to remote server.");
+                }
 
-                    GameObject rotBone = otherPlayer.GetChildWithName("mesh_otherPlayer/Armature/root/DEF.spine/DEF.tummy/DEF.chest/rotBone");
-                    InterpolateMovementScript interpolateMovementScript = rotBone.GetComponent<InterpolateMovementScript>();
-                    interpolateMovementScript.MoveLocalEulerAnglesTo(new Vector3(clientPositionPacket.rotX, 0, clientPositionPacket.rotZ), 0.1f);
-                }
-                catch (KeyNotFoundException)
+                if (BaseGameSystem.GameType == GameType.None || !SendPacket(new Packet()
                 {
+                    [PacketField.GameType] = (int)BaseGameSystem.GameType
+                }))
+                {
+                    Logger.LogError("The game_type packet could not be sent.");
+                    return false;
                 }
-            }));
-        }
-        else if (packet is BulletCreatePacket bulletCreatePacket)
-        {
-            GameSystem.RunSync(new Action(() =>
+
+                return true;
+            }
+            catch
             {
-                Vector3 startPosition = new Vector3(bulletCreatePacket.posX, bulletCreatePacket.posY, bulletCreatePacket.posZ);
-                GameObject obj = GameSystem.SystemHolder.bulletContainer.CreateObject(GameSystem.SystemHolder.bullet, startPosition, Quaternion.Euler(bulletCreatePacket.rotX, bulletCreatePacket.rotY, bulletCreatePacket.rotZ));
-                Bullet bullet = obj.GetComponent<Bullet>();
-                bullet.startPosition = startPosition;
-                bullet.shooterId = bulletCreatePacket.clientId;
-            }));
+                Logger.LogError("Can´t connect to server.");
+
+                return false;
+            }
+        }
+
+        public static bool ConnectToLocalServer()
+        {
+            try
+            {
+                Connection = new Connection(new TcpClient(BlindDeerGames.LOCALHOST_ADDRESS, BlindDeerGames.SERVER_PORT));
+                Connection.Closed += Connection_Closed;
+                Connection.Output += Connection_Output;
+
+                Logger.LogInfo("Connected to local server.");
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private static void Connection_Output(object sender, ConnectionPacketOutputEventArgs e)
+        {
+            Packet packet = e.Packet;
+
+            if (packet.Contains(PacketField.ServerLogType) && packet.Contains(PacketField.ServerLogMessage))
+            {
+                Logger.LogAny((LogType)packet[PacketField.ServerLogType], "ServerLog: " + packet[PacketField.ServerLogMessage]);
+            }
+
+            BaseGameSystem.Game.OnPacket(packet);
+        }
+
+        private static void Connection_Closed(object sender, ConnectionEventArgs e)
+        {
+            Logger.LogError("The connection to the server was closed.");
+        }
+
+        public static bool SendPacket(Packet packet)
+        {
+            return Connection.SendPacket(packet);
         }
     }
 }
