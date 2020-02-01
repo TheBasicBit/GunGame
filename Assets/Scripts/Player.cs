@@ -1,4 +1,5 @@
 ﻿using BlindDeer.GameBase;
+using BlindDeer.Network;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -79,7 +80,6 @@ namespace BlindDeer.Game.PiouPiou
                 }
             }
 
-            /*
             if (Input.GetKey(shootKey))
             {
                 if (Time.time - lastShoot > 0.1)
@@ -87,7 +87,6 @@ namespace BlindDeer.Game.PiouPiou
                     Shoot();
                 }
             }
-            */
 
             if (verticalForce > -gravity)
             {
@@ -152,24 +151,27 @@ namespace BlindDeer.Game.PiouPiou
             verticalForce = jumpForce;
         }
 
-        /*
         public void Shoot()
         {
-            lastShoot = Time.time;
-            Vector3 startPosition = transform.position + new Vector3(0, 0.25f, 0) + GameSystem.PlayerCamera.transform.TransformDirection(new Vector3(0, 0, 0.75f));
-            Vector3 rotation = GameSystem.PlayerCamera.transform.eulerAngles;
+            PlayerCamera camera = ((PiouPiouSystem)BaseGameSystem.Game).PlayerCamera;
 
-            GameSystem.Client.SendPacket(new ShootPacket()
+            lastShoot = Time.time;
+            Vector3 startPosition = transform.position + new Vector3(0, camera.transform.localPosition.y, 0) + camera.transform.TransformDirection(new Vector3(0, 0, 0.75f));
+            Vector3 rotation = camera.transform.eulerAngles;
+
+            NetworkManager.SendPacket(new Packet()
             {
-                posX = startPosition.x,
-                posY = startPosition.y,
-                posZ = startPosition.z,
-                rotX = rotation.x,
-                rotY = rotation.y,
-                rotZ = rotation.z
+                [PacketField.PacketType] = (int)PacketType.Shoot,
+                [PacketField.ShootPosX] = startPosition.x,
+                [PacketField.ShootPosY] = startPosition.y,
+                [PacketField.ShootPosZ] = startPosition.z,
+                [PacketField.ShootRotX] = rotation.x,
+                [PacketField.ShootRotY] = rotation.y,
+                [PacketField.ShootRotZ] = rotation.z
             });
         }
 
+        /*
         public void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.HasComponent<Bullet>())

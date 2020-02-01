@@ -65,5 +65,10 @@ namespace BlindDeer.GameBase
         {
             Game?.OnEngineUpdate();
         }
+
+        public static void OnExit()
+        {
+            Game?.OnExit();
+        }
     }
 }

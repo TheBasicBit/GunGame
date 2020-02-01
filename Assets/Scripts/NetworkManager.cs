@@ -28,7 +28,8 @@ namespace BlindDeer.GameBase
 
                 if (BaseGameSystem.GameType == GameType.None || !SendPacket(new Packet()
                 {
-                    [PacketField.GameType] = (int)BaseGameSystem.GameType
+                    [PacketField.GameType] = (int)BaseGameSystem.GameType,
+                    [PacketField.PacketType] = (int)PacketType.Game
                 }))
                 {
                     Logger.LogError("The game_type packet could not be sent.");
@@ -66,8 +67,9 @@ namespace BlindDeer.GameBase
         private static void Connection_Output(object sender, ConnectionPacketOutputEventArgs e)
         {
             Packet packet = e.Packet;
+            PacketType type = (PacketType)packet[PacketField.PacketType];
 
-            if (packet.Contains(PacketField.ServerLogType) && packet.Contains(PacketField.ServerLogMessage))
+            if (type == PacketType.Log)
             {
                 Logger.LogAny((LogType)packet[PacketField.ServerLogType], "ServerLog: " + packet[PacketField.ServerLogMessage]);
             }

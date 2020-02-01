@@ -90,14 +90,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2442536512472483923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c66ade994a978b4b9faa44e9c480dd9, type: 3}
+  m_Script: {fileID: 11500000, guid: da2d573d8952be54eb28ef7593f71988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shooterId: 0
   power: 5
-  maxFlyWide: 50
-  _________________________________________________: 0
+  maxFlyWide: 100
+  _____________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
+  shooterId: 0
 --- !u!54 &9093910062340043053
 Rigidbody:
   m_ObjectHideFlags: 0

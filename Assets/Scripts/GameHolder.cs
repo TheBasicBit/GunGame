@@ -23,5 +23,10 @@ namespace BlindDeer.GameBase
         {
             return Instantiate(gameObject, pos, Quaternion.Euler(rot));
         }
+
+        public void OnApplicationQuit()
+        {
+            BaseGameSystem.OnExit();
+        }
     }
 }

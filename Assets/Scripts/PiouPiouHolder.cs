@@ -12,13 +12,17 @@ namespace BlindDeer.Game.PiouPiou
     {
         public GameObject player;
         public GameObject otherPlayer;
+        public GameObject playerCamera;
+        public GameObject bullet;
 
         public void OnEnable()
         {
             BaseGameSystem.Game = new PiouPiouSystem()
             {
                 Player = player.GetComponent<Player>(),
-                OtherPlayerPrefab = otherPlayer
+                OtherPlayerPrefab = otherPlayer,
+                PlayerCamera = playerCamera.GetComponent<PlayerCamera>(),
+                BulletPrefab = bullet
             };
         }
     }

@@ -19,5 +19,7 @@ namespace BlindDeer.GameBase
         void OnEngineUpdate();
 
         void OnPacket(Packet packet);
+
+        void OnExit();
     }
 }

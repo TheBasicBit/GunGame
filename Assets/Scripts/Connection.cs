@@ -27,7 +27,7 @@ namespace BlindDeer.Network
             Client = client;
 
             _stream = client.GetStream();
-            _stream.ReadTimeout = _stream.WriteTimeout = 2000;
+            _stream.ReadTimeout = _stream.WriteTimeout = 300;
 
             _keepAliveTimer.Start();
 
