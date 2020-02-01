@@ -82,6 +82,11 @@ namespace BlindDeer.GameBase
 
         public static bool SendPacket(Packet packet)
         {
+            if (Connection == null)
+            {
+                return false;
+            }
+
             return Connection.SendPacket(packet);
         }
     }

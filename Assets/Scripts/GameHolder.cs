@@ -18,5 +18,10 @@ namespace BlindDeer.GameBase
         {
             BaseGameSystem.OnEngineUpdate();
         }
+
+        public static GameObject CreateObject(GameObject gameObject, Vector3 pos, Vector3 rot)
+        {
+            return Instantiate(gameObject, pos, Quaternion.Euler(rot));
+        }
     }
 }

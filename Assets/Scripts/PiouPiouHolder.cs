@@ -10,9 +10,16 @@ namespace BlindDeer.Game.PiouPiou
 {
     public class PiouPiouHolder : MonoBehaviour
     {
+        public GameObject player;
+        public GameObject otherPlayer;
+
         public void OnEnable()
         {
-            BaseGameSystem.Game = new PiouPiouSystem();
+            BaseGameSystem.Game = new PiouPiouSystem()
+            {
+                Player = player.GetComponent<Player>(),
+                OtherPlayerPrefab = otherPlayer
+            };
         }
     }
 }
