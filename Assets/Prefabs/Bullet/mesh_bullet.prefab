@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: ff2ae36fb67afe7418530bec042fceb3, type: 3}
+  - {fileID: 2100000, guid: dc4ba5defae7eea4cb1bb764422815c7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90,11 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2442536512472483923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da2d573d8952be54eb28ef7593f71988, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c4d6fd799455db4283cea65b6205a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 5
-  maxFlyWide: 100
+  power: 3
+  maxFlyWide: 500
   _____________________________________: 0
   startPosition: {x: 0, y: 0, z: 0}
   shooterId: 0
