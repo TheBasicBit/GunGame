@@ -36,10 +36,7 @@ namespace BlindDeer.GameBase
                 Logger.LogWarning("BlindDeer.GameBase.BaseGameSystem.Game is not defined.");
             }
 
-            if (!NetworkManager.Connect())
-            {
-                return;
-            }
+            NetworkManager.Connect();
 
             UpdateManager.Start();
 
@@ -67,10 +64,6 @@ namespace BlindDeer.GameBase
         public static void OnEngineUpdate()
         {
             Game?.OnEngineUpdate();
-        }
-
-        public static void ServerOffline()
-        {
         }
     }
 }

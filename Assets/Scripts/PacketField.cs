@@ -6,8 +6,12 @@ namespace BlindDeer.Network
 {
     public enum PacketField
     {
-        GameType = 0x00000000,
-        ServerLogMessage = 0x00000001,
-        ServerLogType = 0x00000002
+        GameType = 0,
+        ServerLogMessage = 1,
+        ServerLogType = 2,
+        PlayerPosX = 3,
+        PlayerPosY = 4,
+        PlayerPosZ = 5,
+        PlayerId = 6
     }
 }
