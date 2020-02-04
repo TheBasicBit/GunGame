@@ -29,8 +29,16 @@ namespace BlindDeer.GameBase
 
         public static void Main()
         {
-            Logger.Log += OnLog;
+            InitLogger();
+        }
 
+        public static void InitLogger()
+        {
+            Logger.Log += OnLog;
+        }
+
+        public static void GameStarted()
+        {
             if (Game == null)
             {
                 Logger.LogWarning("BlindDeer.GameBase.BaseGameSystem.Game is not defined.");

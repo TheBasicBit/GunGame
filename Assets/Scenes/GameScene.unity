@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree4_2
       objectReference: {fileID: 0}
+    - target: {fileID: 6961808075048234639, guid: 9e5f07177cd263d4fb8d38254e0b1af3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6252709699664534684, guid: 9e5f07177cd263d4fb8d38254e0b1af3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -610,6 +615,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_pineTree_dead
       objectReference: {fileID: 0}
+    - target: {fileID: 2253104716998418269, guid: c730cce04d0cd6f4ab1c220919474420,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2963363149960736078, guid: c730cce04d0cd6f4ab1c220919474420,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -730,6 +740,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree4_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
@@ -2009,6 +2024,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_04 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6599048526129992792, guid: d7c92b7aaaba67947b2a1b575601f211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7912787656757339723, guid: d7c92b7aaaba67947b2a1b575601f211,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2188,6 +2208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree5_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760261604017510056, guid: 6d8ff255cd5f73a41850cb2188049802,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6767402847077655739, guid: 6d8ff255cd5f73a41850cb2188049802,
         type: 3}
@@ -2372,6 +2397,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01_Green (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 239634566953548324, guid: da34dc1dcbe748743ac74c45e657aed7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3821308160446908471, guid: da34dc1dcbe748743ac74c45e657aed7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2554,6 +2584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599048526129992792, guid: d7c92b7aaaba67947b2a1b575601f211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7912787656757339723, guid: d7c92b7aaaba67947b2a1b575601f211,
         type: 3}
@@ -2823,6 +2858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780788392844921357, guid: 95b35ca58beee784fa24ee4b8706f9f3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1210344150870521886, guid: 95b35ca58beee784fa24ee4b8706f9f3,
         type: 3}
@@ -3878,6 +3918,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree4_1
       objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4463,6 +4508,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01_Green (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 239634566953548324, guid: da34dc1dcbe748743ac74c45e657aed7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3821308160446908471, guid: da34dc1dcbe748743ac74c45e657aed7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4752,6 +4802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_04 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599048526129992792, guid: d7c92b7aaaba67947b2a1b575601f211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7912787656757339723, guid: d7c92b7aaaba67947b2a1b575601f211,
         type: 3}
@@ -5113,6 +5168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_05
       objectReference: {fileID: 0}
+    - target: {fileID: 6977398569998408512, guid: ac6513f6017fab54f9bbc987ae44506d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6237462192208488787, guid: ac6513f6017fab54f9bbc987ae44506d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5272,6 +5332,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 231003476084683481, guid: d256d72480d8cda4480290b2c88165ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3850553118123000010, guid: d256d72480d8cda4480290b2c88165ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5404,6 +5469,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7652602078244416708, guid: b26cc10b49cee6e48b235d3a7a73cc41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6658810451674685143, guid: b26cc10b49cee6e48b235d3a7a73cc41,
         type: 3}
@@ -5587,6 +5657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree4_1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
@@ -6094,6 +6169,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 231003476084683481, guid: d256d72480d8cda4480290b2c88165ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3850553118123000010, guid: d256d72480d8cda4480290b2c88165ca,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6392,6 +6472,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree4_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961808075048234639, guid: 9e5f07177cd263d4fb8d38254e0b1af3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6252709699664534684, guid: 9e5f07177cd263d4fb8d38254e0b1af3,
         type: 3}
@@ -6788,7 +6873,7 @@ Transform:
   m_GameObject: {fileID: 1125530788}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 20.083963, y: 3.5, z: 3.4656236}
-  m_LocalScale: {x: 0.14, y: 1.0514, z: 1.0514}
+  m_LocalScale: {x: 0.14, y: 1.0514, z: 3.2146587}
   m_Children: []
   m_Father: {fileID: 1478385027}
   m_RootOrder: 1
@@ -7155,6 +7240,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree5_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7760261604017510056, guid: 6d8ff255cd5f73a41850cb2188049802,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6767402847077655739, guid: 6d8ff255cd5f73a41850cb2188049802,
         type: 3}
@@ -7788,6 +7878,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_03_Green (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9187529344245360667, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5322111929432283656, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7877,6 +7972,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree5_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 231003476084683481, guid: d256d72480d8cda4480290b2c88165ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3850553118123000010, guid: d256d72480d8cda4480290b2c88165ca,
         type: 3}
@@ -8628,6 +8728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_01_Green
       objectReference: {fileID: 0}
+    - target: {fileID: 239634566953548324, guid: da34dc1dcbe748743ac74c45e657aed7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3821308160446908471, guid: da34dc1dcbe748743ac74c45e657aed7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8868,6 +8973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Tree_03_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 9187529344245360667, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5322111929432283656, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
         type: 3}
@@ -9236,6 +9346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9212816509074859319, guid: 11d56276683be93408547b5337a8d37e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5296556509538555684, guid: 11d56276683be93408547b5337a8d37e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9325,6 +9440,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6599048526129992792, guid: d7c92b7aaaba67947b2a1b575601f211,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7912787656757339723, guid: d7c92b7aaaba67947b2a1b575601f211,
         type: 3}
@@ -9728,6 +9848,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree4_1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9917,6 +10042,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree4_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
@@ -11008,6 +11138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_3
       objectReference: {fileID: 0}
+    - target: {fileID: 9212816509074859319, guid: 11d56276683be93408547b5337a8d37e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5296556509538555684, guid: 11d56276683be93408547b5337a8d37e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11186,6 +11321,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree5_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 231003476084683481, guid: d256d72480d8cda4480290b2c88165ca,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3850553118123000010, guid: d256d72480d8cda4480290b2c88165ca,
         type: 3}
@@ -11810,7 +11950,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886849034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.996, z: 0}
+  m_LocalPosition: {x: -0.08983418, y: 1.1614461, z: 0.0683281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1290648375}
@@ -12417,6 +12557,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7760261604017510056, guid: 6d8ff255cd5f73a41850cb2188049802,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6767402847077655739, guid: 6d8ff255cd5f73a41850cb2188049802,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12600,6 +12745,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mesh_tree5_3 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9212816509074859319, guid: 11d56276683be93408547b5337a8d37e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5296556509538555684, guid: 11d56276683be93408547b5337a8d37e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12696,6 +12846,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tree_03_Green (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9187529344245360667, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5322111929432283656, guid: dfbf4a9540a72ba4cab4f9cc6fa7e98b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12786,6 +12941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_03
       objectReference: {fileID: 0}
+    - target: {fileID: 7652602078244416708, guid: b26cc10b49cee6e48b235d3a7a73cc41,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6658810451674685143, guid: b26cc10b49cee6e48b235d3a7a73cc41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12864,6 +13024,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: mesh_tree4_1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 299216603854330972, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3637886170403450447, guid: e6c7ff59882eb954b8865f6ecd6b0d37,
         type: 3}
@@ -13351,6 +13516,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261816797440085873, guid: 0912cc66dba33084295e620dbbd45b83,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2871474026992074082, guid: 0912cc66dba33084295e620dbbd45b83,
         type: 3}

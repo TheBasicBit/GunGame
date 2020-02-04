@@ -150,7 +150,7 @@ namespace BlindDeer.Game.PiouPiou
 
         public void OnExit()
         {
-            NetworkManager.Connection.Dispose();
+            NetworkManager.Connection?.Dispose();
         }
     }
 }

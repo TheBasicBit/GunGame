@@ -11,7 +11,7 @@ namespace BlindDeer.GameBase
     {
         public void Start()
         {
-            BaseGameSystem.Main();
+            BaseGameSystem.GameStarted();
         }
 
         public void Update()
