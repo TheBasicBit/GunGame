@@ -22,6 +22,8 @@ namespace BlindDeer.Game.PiouPiou
 
         public GameObject OtherPlayerPrefab { get; set; }
 
+        public GameObject BulletHitPrefab { get; set; }
+
         public GameObject BulletPrefab { get; set; }
 
         public Stopwatch MovementPacketTimer { get; } = new Stopwatch();
@@ -136,7 +138,12 @@ namespace BlindDeer.Game.PiouPiou
 
         public void SpawnPlayer(ulong id, Vector3 pos, Vector3 rot)
         {
-            GameHolder.CreateObject(OtherPlayerPrefab, pos, rot).GetComponent<OtherPlayer>().id = id;
+            CreateObject(OtherPlayerPrefab, pos, rot).GetComponent<OtherPlayer>().id = id;
+        }
+
+        public GameObject CreateObject(GameObject gameObject, Vector3 pos, Vector3 rot)
+        {
+            return GameHolder.CreateObject(gameObject, pos, rot);
         }
 
         public void SpawnBullet(ulong clientId, float posX, float posY, float posZ, float rotX, float rotY, float rotZ)

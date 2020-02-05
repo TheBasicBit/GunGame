@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlindDeer.GameBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,6 +35,8 @@ namespace BlindDeer.Game.PiouPiou
         {
             if (collision.gameObject.layer == 10)
             {
+                PiouPiouSystem system = (PiouPiouSystem)BaseGameSystem.Game;
+                system.CreateObject(system.BulletHitPrefab, gameObject.transform.position, gameObject.transform.eulerAngles);
                 Destroy(gameObject);
             }
         }

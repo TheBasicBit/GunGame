@@ -1238,6 +1238,8 @@ MonoBehaviour:
     type: 3}
   playerCamera: {fileID: 1290648374}
   bullet: {fileID: 2442536512472483923, guid: f712af2fef369fa418b7d811df48d3f2, type: 3}
+  bulletHit: {fileID: 1552709990039512088, guid: 3526aab2e86276a40995a77595e23d96,
+    type: 3}
 --- !u!4 &163061126
 Transform:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ namespace BlindDeer.Game.PiouPiou
         public GameObject otherPlayer;
         public GameObject playerCamera;
         public GameObject bullet;
+        public GameObject bulletHit;
 
         public void OnEnable()
         {
@@ -22,7 +23,8 @@ namespace BlindDeer.Game.PiouPiou
                 Player = player.GetComponent<Player>(),
                 OtherPlayerPrefab = otherPlayer,
                 PlayerCamera = playerCamera.GetComponent<PlayerCamera>(),
-                BulletPrefab = bullet
+                BulletPrefab = bullet,
+                BulletHitPrefab = bulletHit
             };
         }
     }

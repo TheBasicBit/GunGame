@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,25 @@ namespace BlindDeer.Game.PiouPiou
     {
         public void OnMainMenuPlayButtonClicked()
         {
-            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+            StartCoroutine(LoadScene("GameScene"));
+        }
+
+        public IEnumerator LoadScene(string name)
+        {
+            AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);
+            asyncOperation.allowSceneActivation = false;
+
+            while (!asyncOperation.isDone)
+            {
+                if (asyncOperation.progress >= 0.9f)
+                {
+                    Logger.LogInfo("Loaded scene: ");
+                    asyncOperation.allowSceneActivation = true;
+                    yield break;
+                }
+
+                yield return null;
+            }
         }
     }
 }
